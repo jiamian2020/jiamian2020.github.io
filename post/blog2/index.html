@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html><head>
+<title>重新回顾JS的笔记系列(一)</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="重新回顾JS的笔记系列(一)" />
+<meta property="og:description" content="重新回顾JS的笔记系列(一) 回顾使用的视频：pink老师的JS视频
+网址：JS基础Day1-02-JavaScript简介和体验_哔哩哔哩_bilibili
+1. JavaScript(是什么?) 答：是一种运行在客户端（浏览器）的编程语言，实现人机交互效果。
+2. JS作用 网页特效 表单验证 数据交互 服务端编程 3. JS组成 ECMAScript（JS语法基础） 例子：变量、分支语句、循环语句、对象等
+Web APIS DOM（页面文档对象模型）：操作文档，比如对页面元素进行移动、大小、添加删除等操作 BOM （浏览器对象模型）：操作浏览器，比如页面弹窗，检测窗口宽度、存储数据到浏览器等等 4.JS的一些概念 我们几乎可以使用 &lt;script&gt; 标签将 JavaScript 程序插入到 HTML 文档的任何位置。 标签中包裹了 JavaScript 代码，当浏览器遇到 标签，代码会自动运行。
+标签形式就是
+&lt;script&gt; ..... &lt;/script&gt; &lt;script src=&#34;/path/to/script.js&#34;&gt; //相当于将JS外置，单独建立一个文件来放置JS的代码 alert(1); // 此内容会被忽略，因为设定了 src &lt;/script&gt; 主要来说就是一下几点：
+我们可以使用一个 &lt;script&gt; 标签将 JavaScript 代码添加到页面中。 type 和 language 特性（attribute）不是必需的。 外部的脚本可以通过 &lt;script src=&quot;path/to/script.js&quot;&gt;&lt;/script&gt; 的方式插入 tips：
+js的代码是可以不用加分号来隔绝语句的，但是在某些特殊情况之下还是会造成一些错误。 注释就直接使用 //或者/**/来书写，区别是前者为1行，后者为包含之内的所有语句。 在大多数的编辑器中，一行代码可以使用 Ctrl&#43;/ 快捷键进行单行注释，诸如 Ctrl&#43;Shift&#43;/ 的快捷键可以进行多行注释（选择代码，然后按下快捷键）。 5.现代模式 使用的原因：ES5 规范增加了新的语言特性并且修改了一些已经存在的特性。为了保证旧的功能能够使用，大部分的修改是默认不生效的，此时需要一个特殊的指令：&quot;use strict&quot;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jiamian2020.github.io/post/blog2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-03-01T00:20:59+08:00" />
+<meta property="article:modified_time" content="2023-03-01T00:20:59+08:00" /><meta property="og:site_name" content="My Blog" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="重新回顾JS的笔记系列(一)"/>
+<meta name="twitter:description" content="重新回顾JS的笔记系列(一) 回顾使用的视频：pink老师的JS视频
+网址：JS基础Day1-02-JavaScript简介和体验_哔哩哔哩_bilibili
+1. JavaScript(是什么?) 答：是一种运行在客户端（浏览器）的编程语言，实现人机交互效果。
+2. JS作用 网页特效 表单验证 数据交互 服务端编程 3. JS组成 ECMAScript（JS语法基础） 例子：变量、分支语句、循环语句、对象等
+Web APIS DOM（页面文档对象模型）：操作文档，比如对页面元素进行移动、大小、添加删除等操作 BOM （浏览器对象模型）：操作浏览器，比如页面弹窗，检测窗口宽度、存储数据到浏览器等等 4.JS的一些概念 我们几乎可以使用 &lt;script&gt; 标签将 JavaScript 程序插入到 HTML 文档的任何位置。 标签中包裹了 JavaScript 代码，当浏览器遇到 标签，代码会自动运行。
+标签形式就是
+&lt;script&gt; ..... &lt;/script&gt; &lt;script src=&#34;/path/to/script.js&#34;&gt; //相当于将JS外置，单独建立一个文件来放置JS的代码 alert(1); // 此内容会被忽略，因为设定了 src &lt;/script&gt; 主要来说就是一下几点：
+我们可以使用一个 &lt;script&gt; 标签将 JavaScript 代码添加到页面中。 type 和 language 特性（attribute）不是必需的。 外部的脚本可以通过 &lt;script src=&quot;path/to/script.js&quot;&gt;&lt;/script&gt; 的方式插入 tips：
+js的代码是可以不用加分号来隔绝语句的，但是在某些特殊情况之下还是会造成一些错误。 注释就直接使用 //或者/**/来书写，区别是前者为1行，后者为包含之内的所有语句。 在大多数的编辑器中，一行代码可以使用 Ctrl&#43;/ 快捷键进行单行注释，诸如 Ctrl&#43;Shift&#43;/ 的快捷键可以进行多行注释（选择代码，然后按下快捷键）。 5.现代模式 使用的原因：ES5 规范增加了新的语言特性并且修改了一些已经存在的特性。为了保证旧的功能能够使用，大部分的修改是默认不生效的，此时需要一个特殊的指令：&quot;use strict&quot;"/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/scss/journal.min.7c01e9f6fb2f6083d79d2f3a32ec6b7901e262e94a52a64a542aef98bc5bda64.css" integrity="sha256-fAHp9vsvYIPXnS86MuxreQHiYulKUqZKVCrvmLxb2mQ=" media="screen">
+
+
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS Feed
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e4%b8%80" class="nav-重新回顾js的笔记系列一">
+									重新回顾JS的笔记系列(一)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://jiamian2020.github.io/">
+            A Hugo Site
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://jiamian2020.github.io/">
+        <div class="single-column-header-title">A Hugo Site</div>
+        
+        <div class="single-column-header-subtitle">Themed by Diary.</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    重新回顾JS的笔记系列(一)
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-03-01 00:20
+                        </time>
+                        
+
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="重新回顾js的笔记系列一">重新回顾JS的笔记系列(一)</h2>
+<p>回顾使用的视频：pink老师的JS视频</p>
+<p>网址：<a href="https://www.bilibili.com/video/BV1Y84y1L7Nn?p=2&amp;vd_source=51b28524032973121a635e604432049b">JS基础Day1-02-JavaScript简介和体验_哔哩哔哩_bilibili</a></p>
+<h5 id="1-javascript是什么">1. JavaScript(是什么?)</h5>
+<p>答：是一种运行在客户端（浏览器）的编程语言，实现人机交互效果。</p>
+<h5 id="2-js作用">2. JS作用</h5>
+<ul>
+<li>网页特效</li>
+<li>表单验证</li>
+<li>数据交互</li>
+<li>服务端编程</li>
+</ul>
+<h5 id="3-js组成">3. JS组成</h5>
+<ul>
+<li><code>ECMAScript</code>（JS语法基础）</li>
+</ul>
+<p>例子：变量、分支语句、循环语句、对象等</p>
+<ul>
+<li><code>Web APIS</code></li>
+</ul>
+<ol>
+<li><code>DOM</code>（页面文档对象模型）：操作文档，比如对页面元素进行移动、大小、添加删除等操作</li>
+<li><code>BOM </code>（浏览器对象模型）：操作浏览器，比如页面弹窗，检测窗口宽度、存储数据到浏览器等等</li>
+</ol>
+<h5 id="4js的一些概念">4.JS的一些概念</h5>
+<p>我们几乎可以使用 <code>&lt;script&gt;</code> 标签将 JavaScript 程序插入到 HTML 文档的任何位置。<!-- raw HTML omitted --> 标签中包裹了 JavaScript 代码，当浏览器遇到 <!-- raw HTML omitted --> 标签，代码会自动运行。</p>
+<p>标签形式就是</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>&lt;script&gt; 
+</span></span><span style="display:flex;"><span>    .....
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#a61717;background-color:#e3d2d2">/script&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;script src=<span style="color:#cd5555">&#34;/path/to/script.js&#34;</span>&gt; <span style="color:#228b22">//相当于将JS外置，单独建立一个文件来放置JS的代码
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    alert(<span style="color:#b452cd">1</span>); <span style="color:#228b22">// 此内容会被忽略，因为设定了 src
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>&lt;<span style="color:#a61717;background-color:#e3d2d2">/script&gt;</span>
+</span></span></code></pre></div><p>主要来说就是一下几点：</p>
+<ul>
+<li>我们可以使用一个 <code>&lt;script&gt;</code> 标签将 JavaScript 代码添加到页面中。</li>
+<li><code>type</code> 和 <code>language</code> 特性（attribute）不是必需的。</li>
+<li>外部的脚本可以通过 <code>&lt;script src=&quot;path/to/script.js&quot;&gt;&lt;/script&gt;</code> 的方式插入</li>
+</ul>
+<p><strong>tips：</strong></p>
+<ol>
+<li>js的代码是可以不用加分号来隔绝语句的，但是在某些特殊情况之下还是会造成一些错误。</li>
+<li>注释就直接使用 <code>//</code>或者<code>/**/</code>来书写，区别是前者为1行，后者为包含之内的所有语句。</li>
+<li>在大多数的编辑器中，一行代码可以使用 Ctrl+/ 快捷键进行单行注释，诸如 Ctrl+Shift+/ 的快捷键可以进行多行注释（选择代码，然后按下快捷键）。</li>
+</ol>
+<h5 id="5现代模式">5.现代模式</h5>
+<ul>
+<li>
+<p>使用的原因：ES5 规范增加了新的语言特性并且修改了一些已经存在的特性。为了保证旧的功能能够使用，大部分的修改是默认不生效的，此时需要一个特殊的指令：<code>&quot;use strict&quot;</code></p>
+</li>
+<li>
+<p>注意点1：确保<code>&quot;use strict&quot;</code> 出现在脚本的最顶部，否则严格模式可能无法启用。</p>
+</li>
+<li>
+<p>注意点2：一旦进入了严格模式，就没有回头路了。</p>
+</li>
+<li>
+<p>注意点3：当你使用<strong>开发者控制台</strong>运行代码时，请注意它默认是不启动 <code>use strict</code> 的。</p>
+</li>
+<li>
+<p>在控制台上添加<code>&quot;use strict&quot;</code> 的方法：</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#228b22">//方法一
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#cd5555">&#39;use strict&#39;</span>; &lt;Shift+Enter 换行&gt;
+</span></span><span style="display:flex;"><span><span style="color:#228b22">//  ...你的代码
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>&lt;按下 Enter 以运行&gt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#228b22">//方法二
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>(<span style="color:#8b008b;font-weight:bold">function</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#cd5555">&#39;use strict&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#228b22">// ...你的代码...
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>})()
+</span></span></code></pre></div><h5 id="6变量">6.变量</h5>
+<ol>
+<li>定义：<strong>变量</strong>是数据的“命名存储”。我们可以使用变量来保存商品、访客和其他信息。</li>
+</ol>
+<h5 id="第一个小案例">第一个小案例</h5>
+<p>（直接看pink）</p>
+<ol start="2">
+<li>基本格式：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> message;
+</span></span><span style="display:flex;"><span>message = <span style="color:#cd5555">&#39;Hello&#39;</span>; <span style="color:#228b22">// 将字符串 &#39;Hello&#39; 保存在名为 message 的变量中
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> message2;
+</span></span><span style="display:flex;"><span>message2 = message; <span style="color:#228b22">// 将字符串 &#39;Hello world&#39; 从变量 hello 拷贝到 message
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert(message); <span style="color:#228b22">// 显示变量内容
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert(message2); <span style="color:#228b22">// 显示变量内容
+</span></span></span></code></pre></div><ol start="3">
+<li>命名格式</li>
+</ol>
+<ul>
+<li>
+<p>变量名称必须仅包含字母、数字、符号 <code>$</code> 和 <code>_</code>。</p>
+</li>
+<li>
+<p>首字符必须非数字。</p>
+</li>
+</ul>
+<p>正确示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> userName;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> test123;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> $ = <span style="color:#b452cd">1</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> _ = <span style="color:#b452cd">2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> apple;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> APPLE; <span style="color:#228b22">//注意变量是区分大小写的
+</span></span></span></code></pre></div><p>错误示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> <span style="color:#b452cd">1</span>a; <span style="color:#228b22">// 不能以数字开始
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">let</span> my-name; <span style="color:#228b22">// 连字符 &#39;-&#39; 不允许用于变量命名
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">let</span> <span style="color:#8b008b;font-weight:bold">let</span> = <span style="color:#b452cd">5</span>; <span style="color:#228b22">// 不能用 &#34;let&#34; 来命名一个变量，错误！
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">let</span> <span style="color:#8b008b;font-weight:bold">return</span> = <span style="color:#b452cd">5</span>; <span style="color:#228b22">// 同样，不能使用 &#34;return&#34;，错误！
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//存在保留字列表是不能作为变量来命名的
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#cd5555">&#34;use strict&#34;</span>;
+</span></span><span style="display:flex;"><span>num = <span style="color:#b452cd">5</span>; <span style="color:#228b22">// 错误：num 未定义，在旧版本中是可以使用的
+</span></span></span></code></pre></div><h5 id="7常量">7.常量</h5>
+<p>声明一个常数（不变）变量，可以使用 <code>const</code> 而非 <code>let</code>：</p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">const</span> myBirthday = <span style="color:#cd5555">&#39;18.04.1982&#39;</span>;
+</span></span><span style="display:flex;"><span>myBirthday = <span style="color:#cd5555">&#39;01.01.2001&#39;</span>; <span style="color:#228b22">// 错误，不能对常量重新赋值
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">const</span> COLOR_RED = <span style="color:#cd5555">&#34;#F00&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">const</span> COLOR_GREEN = <span style="color:#cd5555">&#34;#0F0&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">const</span> COLOR_BLUE = <span style="color:#cd5555">&#34;#00F&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">const</span> COLOR_ORANGE = <span style="color:#cd5555">&#34;#FF7F00&#34;</span>;<span style="color:#228b22">//我们通常用大写字母表示“硬编码（hard-coded）”的常量。或者，换句话说就是，当值在执行之前或在被写入代码的时候，我们就知道值是什么了。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// ……当我们需要选择一个颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">let</span> color = COLOR_ORANGE;
+</span></span><span style="display:flex;"><span>alert(color); <span style="color:#228b22">// #FF7F00
+</span></span></span></code></pre></div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-03-01</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/post/blog1/">
+			Previous<br>Markdown 基本使用方法
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/repo"
+        data-repo-id=""
+        data-category="General"
+        data-category-id="*********************"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://jiamian2020.github.io/">
+    
+        <div class="nav-title">
+            A Hugo Site
+        </div>
+        
+        <div class="nav-subtitle">
+            Themed by Diary.
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS Feed
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e4%b8%80" class="nav-重新回顾js的笔记系列一">
+									重新回顾JS的笔记系列(一)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on A Hugo Site</title>
+    <link>https://jiamian2020.github.io/post/</link>
+    <description>Recent content in Posts on A Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Wed, 01 Mar 2023 00:20:59 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重新回顾JS的笔记系列(一)</title>
+      <link>https://jiamian2020.github.io/post/blog2/</link>
+      <pubDate>Wed, 01 Mar 2023 00:20:59 +0800</pubDate>
+      
+      <guid>https://jiamian2020.github.io/post/blog2/</guid>
+      <description>重新回顾JS的笔记系列(一) 回顾使用的视频：pink老师的JS视频
+网址：JS基础Day1-02-JavaScript简介和体验_哔哩哔哩_bilibili
+1. JavaScript(是什么?) 答：是一种运行在客户端（浏览器）的编程语言，实现人机交互效果。
+2. JS作用 网页特效 表单验证 数据交互 服务端编程 3. JS组成 ECMAScript（JS语法基础） 例子：变量、分支语句、循环语句、对象等
+Web APIS DOM（页面文档对象模型）：操作文档，比如对页面元素进行移动、大小、添加删除等操作 BOM （浏览器对象模型）：操作浏览器，比如页面弹窗，检测窗口宽度、存储数据到浏览器等等 4.JS的一些概念 我们几乎可以使用 &amp;lt;script&amp;gt; 标签将 JavaScript 程序插入到 HTML 文档的任何位置。 标签中包裹了 JavaScript 代码，当浏览器遇到 标签，代码会自动运行。
+标签形式就是
+&amp;lt;script&amp;gt; ..... &amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;/path/to/script.js&amp;#34;&amp;gt; //相当于将JS外置，单独建立一个文件来放置JS的代码 alert(1); // 此内容会被忽略，因为设定了 src &amp;lt;/script&amp;gt; 主要来说就是一下几点：
+我们可以使用一个 &amp;lt;script&amp;gt; 标签将 JavaScript 代码添加到页面中。 type 和 language 特性（attribute）不是必需的。 外部的脚本可以通过 &amp;lt;script src=&amp;quot;path/to/script.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; 的方式插入 tips：
+js的代码是可以不用加分号来隔绝语句的，但是在某些特殊情况之下还是会造成一些错误。 注释就直接使用 //或者/**/来书写，区别是前者为1行，后者为包含之内的所有语句。 在大多数的编辑器中，一行代码可以使用 Ctrl+/ 快捷键进行单行注释，诸如 Ctrl+Shift+/ 的快捷键可以进行多行注释（选择代码，然后按下快捷键）。 5.现代模式 使用的原因：ES5 规范增加了新的语言特性并且修改了一些已经存在的特性。为了保证旧的功能能够使用，大部分的修改是默认不生效的，此时需要一个特殊的指令：&amp;quot;use strict&amp;quot;</description>
+    </item>
+    
+    <item>
+      <title>Markdown 基本使用方法</title>
+      <link>https://jiamian2020.github.io/post/blog1/</link>
+      <pubDate>Wed, 01 Mar 2023 00:19:54 +0800</pubDate>
+      
+      <guid>https://jiamian2020.github.io/post/blog1/</guid>
+      <description>Markdown 基本使用方法 1.标题 总共分为六级在文字之前加上####并且加上空格，就会触发，加入的越多，标题越小
+2.列表 首先是有序列表，例子：
+打开冰箱 把大象放进去 关上冰箱 （输入1+. 再空格会触发，不想继续输入下去可以回车两下取消）
+接下来是无序列表，例子：
+1111 2222 3333 （输入 - 再空格就会触发，不想继续输入下去可以回车两下取消）
+选择列表，例子
+吃饭 睡觉 打豆豆 （输入-[]后，分别在-后[]内以及后输入空格才会触发，不想继续输入下去可以回车两下取消）
+3.代码块 （输入```后加入想要写的语言，例如c语言）
+4.数学公式 $$ \frac{\partial f}{\partial x}=2\sqrt{a}x $$
+(输入$$之后会出现公式框，就可以继续输入公式了)
+5.表格 姓名 年龄 成绩 张三 18 11 （格式就是|参数1|参数2|参数3|，之后回车就可以了）
+6.脚注 一键三连1
+7.横线 就是输入&amp;mdash;
+8.链接 百度
+格式是[网页名称] (网址 &amp;ldquo;提示语&amp;rdquo;) 注意 中间不能有空格
+跳转链接：
+请参考1.标题
+格式为：[1.标题] (#1.标题)
+使用的时候需要按住ctrl再点击后就可以了。
+图片链接:
+![名称] () 括号内输入图片的链接
+9.文字编辑 斜体 （选中文字后按ctrl+I）
+加粗（选中文字后按ctrl+B）
+下划线（选中文字后按ctrl+U）
+emoji :smile:
+点赞投币收藏&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+    </item>
+    
+  </channel>
+</rss>

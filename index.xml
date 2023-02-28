@@ -1,0 +1,531 @@
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A Hugo Site</title>
+    <link>https://jiamian2020.github.io/</link>
+    <description>Recent content on A Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Wed, 01 Mar 2023 00:20:59 +0800</lastBuildDate>
+    
+        <atom:link href="https://jiamian2020.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>重新回顾JS的笔记系列(一)</title>
+        <link>https://jiamian2020.github.io/post/blog2/</link>
+        <pubDate>Wed, 01 Mar 2023 00:20:59 +0800</pubDate>
+        
+        <guid>https://jiamian2020.github.io/post/blog2/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/post/blog2/ -&lt;h2 id=&#34;重新回顾js的笔记系列一&#34;&gt;重新回顾JS的笔记系列(一)&lt;/h2&gt;
+&lt;p&gt;回顾使用的视频：pink老师的JS视频&lt;/p&gt;
+&lt;p&gt;网址：&lt;a href=&#34;https://www.bilibili.com/video/BV1Y84y1L7Nn?p=2&amp;amp;vd_source=51b28524032973121a635e604432049b&#34;&gt;JS基础Day1-02-JavaScript简介和体验_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;1-javascript是什么&#34;&gt;1. JavaScript(是什么?)&lt;/h5&gt;
+&lt;p&gt;答：是一种运行在客户端（浏览器）的编程语言，实现人机交互效果。&lt;/p&gt;
+&lt;h5 id=&#34;2-js作用&#34;&gt;2. JS作用&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;网页特效&lt;/li&gt;
+&lt;li&gt;表单验证&lt;/li&gt;
+&lt;li&gt;数据交互&lt;/li&gt;
+&lt;li&gt;服务端编程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;3-js组成&#34;&gt;3. JS组成&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ECMAScript&lt;/code&gt;（JS语法基础）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例子：变量、分支语句、循环语句、对象等&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Web APIS&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;DOM&lt;/code&gt;（页面文档对象模型）：操作文档，比如对页面元素进行移动、大小、添加删除等操作&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BOM &lt;/code&gt;（浏览器对象模型）：操作浏览器，比如页面弹窗，检测窗口宽度、存储数据到浏览器等等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;4js的一些概念&#34;&gt;4.JS的一些概念&lt;/h5&gt;
+&lt;p&gt;我们几乎可以使用 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 标签将 JavaScript 程序插入到 HTML 文档的任何位置。&lt;!-- raw HTML omitted --&gt; 标签中包裹了 JavaScript 代码，当浏览器遇到 &lt;!-- raw HTML omitted --&gt; 标签，代码会自动运行。&lt;/p&gt;
+&lt;p&gt;标签形式就是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;script&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    .....
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;script src=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;/path/to/script.js&amp;#34;&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#228b22&#34;&gt;//相当于将JS外置，单独建立一个文件来放置JS的代码
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;    alert(&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;); &lt;span style=&#34;color:#228b22&#34;&gt;// 此内容会被忽略，因为设定了 src
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主要来说就是一下几点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我们可以使用一个 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 标签将 JavaScript 代码添加到页面中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt; 和 &lt;code&gt;language&lt;/code&gt; 特性（attribute）不是必需的。&lt;/li&gt;
+&lt;li&gt;外部的脚本可以通过 &lt;code&gt;&amp;lt;script src=&amp;quot;path/to/script.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; 的方式插入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;tips：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;js的代码是可以不用加分号来隔绝语句的，但是在某些特殊情况之下还是会造成一些错误。&lt;/li&gt;
+&lt;li&gt;注释就直接使用 &lt;code&gt;//&lt;/code&gt;或者&lt;code&gt;/**/&lt;/code&gt;来书写，区别是前者为1行，后者为包含之内的所有语句。&lt;/li&gt;
+&lt;li&gt;在大多数的编辑器中，一行代码可以使用 Ctrl+/ 快捷键进行单行注释，诸如 Ctrl+Shift+/ 的快捷键可以进行多行注释（选择代码，然后按下快捷键）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;5现代模式&#34;&gt;5.现代模式&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用的原因：ES5 规范增加了新的语言特性并且修改了一些已经存在的特性。为了保证旧的功能能够使用，大部分的修改是默认不生效的，此时需要一个特殊的指令：&lt;code&gt;&amp;quot;use strict&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意点1：确保&lt;code&gt;&amp;quot;use strict&amp;quot;&lt;/code&gt; 出现在脚本的最顶部，否则严格模式可能无法启用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意点2：一旦进入了严格模式，就没有回头路了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意点3：当你使用&lt;strong&gt;开发者控制台&lt;/strong&gt;运行代码时，请注意它默认是不启动 &lt;code&gt;use strict&lt;/code&gt; 的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在控制台上添加&lt;code&gt;&amp;quot;use strict&amp;quot;&lt;/code&gt; 的方法：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//方法一
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;; &amp;lt;Shift+Enter 换行&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//  ...你的代码
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&amp;lt;按下 Enter 以运行&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//方法二
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;function&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#228b22&#34;&gt;// ...你的代码...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;})()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;6变量&#34;&gt;6.变量&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;定义：&lt;strong&gt;变量&lt;/strong&gt;是数据的“命名存储”。我们可以使用变量来保存商品、访客和其他信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;第一个小案例&#34;&gt;第一个小案例&lt;/h5&gt;
+&lt;p&gt;（直接看pink）&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;基本格式：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; message;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;message = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;; &lt;span style=&#34;color:#228b22&#34;&gt;// 将字符串 &amp;#39;Hello&amp;#39; 保存在名为 message 的变量中
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; message2;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;message2 = message; &lt;span style=&#34;color:#228b22&#34;&gt;// 将字符串 &amp;#39;Hello world&amp;#39; 从变量 hello 拷贝到 message
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(message); &lt;span style=&#34;color:#228b22&#34;&gt;// 显示变量内容
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert(message2); &lt;span style=&#34;color:#228b22&#34;&gt;// 显示变量内容
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;命名格式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;变量名称必须仅包含字母、数字、符号 &lt;code&gt;$&lt;/code&gt; 和 &lt;code&gt;_&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;首字符必须非数字。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;正确示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; userName;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; test123;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; $ = &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; _ = &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; apple;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; APPLE; &lt;span style=&#34;color:#228b22&#34;&gt;//注意变量是区分大小写的
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;错误示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;a; &lt;span style=&#34;color:#228b22&#34;&gt;// 不能以数字开始
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; my-name; &lt;span style=&#34;color:#228b22&#34;&gt;// 连字符 &amp;#39;-&amp;#39; 不允许用于变量命名
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; = &lt;span style=&#34;color:#b452cd&#34;&gt;5&lt;/span&gt;; &lt;span style=&#34;color:#228b22&#34;&gt;// 不能用 &amp;#34;let&amp;#34; 来命名一个变量，错误！
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; = &lt;span style=&#34;color:#b452cd&#34;&gt;5&lt;/span&gt;; &lt;span style=&#34;color:#228b22&#34;&gt;// 同样，不能使用 &amp;#34;return&amp;#34;，错误！
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//存在保留字列表是不能作为变量来命名的
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;num = &lt;span style=&#34;color:#b452cd&#34;&gt;5&lt;/span&gt;; &lt;span style=&#34;color:#228b22&#34;&gt;// 错误：num 未定义，在旧版本中是可以使用的
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;7常量&#34;&gt;7.常量&lt;/h5&gt;
+&lt;p&gt;声明一个常数（不变）变量，可以使用 &lt;code&gt;const&lt;/code&gt; 而非 &lt;code&gt;let&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; myBirthday = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;18.04.1982&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;myBirthday = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;01.01.2001&amp;#39;&lt;/span&gt;; &lt;span style=&#34;color:#228b22&#34;&gt;// 错误，不能对常量重新赋值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; COLOR_RED = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;#F00&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; COLOR_GREEN = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;#0F0&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; COLOR_BLUE = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;#00F&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; COLOR_ORANGE = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;#FF7F00&amp;#34;&lt;/span&gt;;&lt;span style=&#34;color:#228b22&#34;&gt;//我们通常用大写字母表示“硬编码（hard-coded）”的常量。或者，换句话说就是，当值在执行之前或在被写入代码的时候，我们就知道值是什么了。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// ……当我们需要选择一个颜色
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; color = COLOR_ORANGE;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(color); &lt;span style=&#34;color:#228b22&#34;&gt;// #FF7F00
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://jiamian2020.github.io/post/blog2/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Markdown 基本使用方法</title>
+        <link>https://jiamian2020.github.io/post/blog1/</link>
+        <pubDate>Wed, 01 Mar 2023 00:19:54 +0800</pubDate>
+        
+        <guid>https://jiamian2020.github.io/post/blog1/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/post/blog1/ -&lt;h2 id=&#34;markdown-基本使用方法&#34;&gt;Markdown 基本使用方法&lt;/h2&gt;
+&lt;h5 id=&#34;1标题&#34;&gt;1.标题&lt;/h5&gt;
+&lt;p&gt;总共分为六级在文字之前加上####并且加上空格，就会触发，加入的越多，标题越小&lt;/p&gt;
+&lt;h5 id=&#34;2列表&#34;&gt;2.列表&lt;/h5&gt;
+&lt;p&gt;首先是有序列表，例子：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开冰箱&lt;/li&gt;
+&lt;li&gt;把大象放进去&lt;/li&gt;
+&lt;li&gt;关上冰箱&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（输入1+. 再空格会触发，不想继续输入下去可以回车两下取消）&lt;/p&gt;
+&lt;p&gt;接下来是无序列表，例子：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1111&lt;/li&gt;
+&lt;li&gt;2222&lt;/li&gt;
+&lt;li&gt;3333&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（输入 - 再空格就会触发，不想继续输入下去可以回车两下取消）&lt;/p&gt;
+&lt;p&gt;选择列表，例子&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 吃饭&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 睡觉&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 打豆豆&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（输入-[]后，分别在-后[]内以及后输入空格才会触发，不想继续输入下去可以回车两下取消）&lt;/p&gt;
+&lt;h5 id=&#34;3代码块&#34;&gt;3.代码块&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（输入```后加入想要写的语言，例如c语言）&lt;/p&gt;
+&lt;h5 id=&#34;4数学公式&#34;&gt;4.数学公式&lt;/h5&gt;
+&lt;p&gt;$$
+\frac{\partial f}{\partial x}=2\sqrt{a}x
+$$&lt;/p&gt;
+&lt;p&gt;(输入$$之后会出现公式框，就可以继续输入公式了)&lt;/p&gt;
+&lt;h5 id=&#34;5表格&#34;&gt;5.表格&lt;/h5&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;姓名&lt;/th&gt;
+&lt;th&gt;年龄&lt;/th&gt;
+&lt;th&gt;成绩&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;张三&lt;/td&gt;
+&lt;td&gt;18&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;（格式就是|参数1|参数2|参数3|，之后回车就可以了）&lt;/p&gt;
+&lt;h5 id=&#34;6脚注&#34;&gt;6.脚注&lt;/h5&gt;
+&lt;p&gt;一键三连&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h5 id=&#34;7横线&#34;&gt;7.横线&lt;/h5&gt;
+&lt;hr&gt;
+&lt;p&gt;就是输入&amp;mdash;&lt;/p&gt;
+&lt;h5 id=&#34;8链接&#34;&gt;8.链接&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;baidu.com&#34; title=&#34;一个搜索引擎&#34;&gt;百度&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;格式是[网页名称] (网址 &amp;ldquo;提示语&amp;rdquo;) 注意 中间不能有空格&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;跳转链接：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;请参考&lt;a href=&#34;#1.%E6%A0%87%E9%A2%98&#34;&gt;1.标题&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;格式为：[1.标题] (#1.标题)&lt;/p&gt;
+&lt;p&gt;使用的时候需要按住ctrl再点击后就可以了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图片链接:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;C:%5CUsers%5CHP%5CDesktop%5C%E5%AE%9D%E5%8F%AF%E6%A2%A6%E7%B4%A0%E6%9D%90%5C001.png&#34; alt=&#34;名称&#34;&gt;&lt;/p&gt;
+&lt;p&gt;![名称] () 括号内输入图片的链接&lt;/p&gt;
+&lt;h5 id=&#34;9文字编辑&#34;&gt;9.文字编辑&lt;/h5&gt;
+&lt;p&gt;&lt;em&gt;斜体&lt;/em&gt; （选中文字后按ctrl+I）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;加粗&lt;/strong&gt;（选中文字后按ctrl+B）&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;下划线&lt;!-- raw HTML omitted --&gt;（选中文字后按ctrl+U）&lt;/p&gt;
+&lt;p&gt;emoji :smile:&lt;/p&gt;
+&lt;h5 id=&#34;heading&#34;&gt;&lt;/h5&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;点赞投币收藏&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+- https://jiamian2020.github.io/post/blog1/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>中文文本测试</title>
+        <link>https://jiamian2020.github.io/posts/chinese/</link>
+        <pubDate>Thu, 14 Nov 2019 11:25:05 -0400</pubDate>
+        
+        <guid>https://jiamian2020.github.io/posts/chinese/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/posts/chinese/ -&lt;p&gt;　　这样看来， 邓拓在不经意间这样说过，越是没有本领的就越加自命不凡。这不禁令我深思。 我们不得不面对一个非常尴尬的事实，那就是， 一般来说， 所谓中午吃什么，关键是中午吃什么需要如何写。 伏尔泰说过一句富有哲理的话，坚持意志伟大的事业需要始终不渝的精神。这启发了我， 那么， 对我个人而言，中午吃什么不仅仅是一个重大的事件，还可能会改变我的人生。 这样看来， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 一般来讲，我们都必须务必慎重的考虑考虑。 黑格尔说过一句富有哲理的话，只有永远躺在泥坑里的人，才不会再掉进坑里。这启发了我， 我们不得不面对一个非常尴尬的事实，那就是， 既然如何， 在这种困难的抉择下，本人思来想去，寝食难安。&lt;/p&gt;
+&lt;p&gt;　　我认为， 而这些并不是完全重要，更加重要的问题是， 了解清楚中午吃什么到底是一种怎么样的存在，是解决一切问题的关键。 中午吃什么因何而发生？ 而这些并不是完全重要，更加重要的问题是， 卢梭在不经意间这样说过，浪费时间是一桩大罪过。这启发了我， 既然如此， 从这个角度来看， 歌德在不经意间这样说过，意志坚强的人能把世界放在手中像泥块一样任意揉捏。我希望诸位也能好好地体会这句话。 我认为， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 莎士比亚在不经意间这样说过，人的一生是短的，但如果卑劣地过这一生，就太长了。带着这句话，我们还要更加慎重的审视这个问题： 带着这些问题，我们来审视一下中午吃什么。 中午吃什么因何而发生？ 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 布尔沃曾经说过，要掌握书，莫被书掌握；要为生而读，莫为读而生。这似乎解答了我的疑惑。 而这些并不是完全重要，更加重要的问题是， 生活中，若中午吃什么出现了，我们就不得不考虑它出现了的事实。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 带着这些问题，我们来审视一下中午吃什么。 生活中，若中午吃什么出现了，我们就不得不考虑它出现了的事实。 我认为， 一般来说， 中午吃什么，到底应该如何实现。 我们不得不面对一个非常尴尬的事实，那就是， 所谓中午吃什么，关键是中午吃什么需要如何写。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 现在，解决中午吃什么的问题，是非常非常重要的。&lt;/p&gt;
+&lt;p&gt;　　我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 可是，即使是这样，中午吃什么的出现仍然代表了一定的意义。 带着这些问题，我们来审视一下中午吃什么。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 我认为， 问题的关键究竟为何？ 非洲曾经提到过，最灵繁的人也看不见自己的背脊。这启发了我， 易卜生说过一句富有哲理的话，伟大的事业，需要决心，能力，组织和责任感。这似乎解答了我的疑惑。 一般来说， 在这种困难的抉择下，本人思来想去，寝食难安。 中午吃什么，到底应该如何实现。 经过上述讨论， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 中午吃什么因何而发生？
+带着这些问题，我们来审视一下中午吃什么。 对我个人而言，中午吃什么不仅仅是一个重大的事件，还可能会改变我的人生。&lt;/p&gt;
+- https://jiamian2020.github.io/posts/chinese/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Typography - Test for features</title>
+        <link>https://jiamian2020.github.io/posts/post-5/</link>
+        <pubDate>Sun, 18 Mar 2018 12:13:38 +0530</pubDate>
+        
+        <guid>https://jiamian2020.github.io/posts/post-5/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/posts/post-5/ -&lt;p&gt;Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.&lt;/p&gt;
+&lt;h1 id=&#34;heading-1&#34;&gt;Heading 1&lt;/h1&gt;
+&lt;p&gt;Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.&lt;/p&gt;
+&lt;h2 id=&#34;heading-2&#34;&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.&lt;/p&gt;
+&lt;h3 id=&#34;heading-3&#34;&gt;Heading 3&lt;/h3&gt;
+&lt;p&gt;Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.&lt;/p&gt;
+&lt;h4 id=&#34;heading-4&#34;&gt;Heading 4&lt;/h4&gt;
+&lt;p&gt;Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.&lt;/p&gt;
+&lt;h5 id=&#34;heading-5&#34;&gt;Heading 5&lt;/h5&gt;
+&lt;p&gt;Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.&lt;/p&gt;
+&lt;h6 id=&#34;heading-6&#34;&gt;Heading 6&lt;/h6&gt;
+&lt;p&gt;Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.&lt;/p&gt;
+&lt;h2 id=&#34;typography&#34;&gt;Typography&lt;/h2&gt;
+&lt;p&gt;Lid est laborum et dolorum fuga, This is &lt;a href=&#34;http://example.com/&#34; title=&#34;Title&#34;&gt;an example&lt;/a&gt; inline link. Et harum quidem rerum facilis, &lt;strong&gt;This is bold&lt;/strong&gt; and &lt;em&gt;emphasis&lt;/em&gt; cumque nihilse impedit quo minus id quod amets untra dolor amet sad. While this is &lt;code&gt;code block()&lt;/code&gt; and following is a &lt;code&gt;pre&lt;/code&gt; tag&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;print &#39;this is pre tag&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Following is the syntax highlighted code block&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;getCookie&lt;/span&gt;(name &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;string&lt;/span&gt;, r &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;interface&lt;/span&gt;{}) (*http.Cookie, &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	rd := r.(*http.Request)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	cookie, err := rd.&lt;span style=&#34;color:#008b45&#34;&gt;Cookie&lt;/span&gt;(name)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt; err != &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;nil&lt;/span&gt;, err
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; cookie, &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setCookie&lt;/span&gt;(cookie *http.Cookie, w &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;interface&lt;/span&gt;{}) &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;error&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#228b22&#34;&gt;// Get write interface registered using `Acquire` method in handlers.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;	wr := w.(http.ResponseWriter)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	http.&lt;span style=&#34;color:#008b45&#34;&gt;SetCookie&lt;/span&gt;(wr, cookie)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is blockquote, Will make it &lt;em&gt;better now&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;lsquo;I want to do with you what spring does with the cherry trees.&amp;rsquo; &lt;!-- raw HTML omitted --&gt;cited ~Pablo Neruda&lt;!-- raw HTML omitted --&gt;*&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Et harum quidem &lt;em&gt;rerum facilis&lt;/em&gt; est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Unordered list&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ordered list&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Blue&lt;/li&gt;
+&lt;/ol&gt;
+- https://jiamian2020.github.io/posts/post-5/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>(No comment) When You Have Too Much to Do</title>
+        <link>https://jiamian2020.github.io/posts/post-1/</link>
+        <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
+        
+        <guid>https://jiamian2020.github.io/posts/post-1/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/posts/post-1/ -&lt;p&gt;You have a to-do list that scrolls on for days. You are managing multiple projects, getting lots of email and messages on different messaging systems, managing finances and personal health habits and so much more.&lt;/p&gt;
+&lt;p&gt;It all keeps piling up, and it can feel overwhelming.&lt;/p&gt;
+&lt;p&gt;How do you keep up with it all? How do you find focus and peace and get stuff accomplished when you have too much on your plate?&lt;/p&gt;
+&lt;p&gt;In this primer, I’ll look at some key strategies and tactics for taking on an overloaded life with an open heart, lots of energy, and a smile on your face.&lt;/p&gt;
+&lt;h2 id=&#34;the-first-step-triage&#34;&gt;The First Step: Triage&lt;/h2&gt;
+&lt;p&gt;Whether you’re just starting your day, or you’re in the middle of the chaos and just need to find some sanity … the first step is to get into triage mode.&lt;/p&gt;
+&lt;p&gt;Triage, as you probably know, is sorting through the chaos to prioritize: what needs to be done now, what needs to be done today, what needs to be done this week, and what can wait? You’re looking at urgency, but also what’s meaningful and important.&lt;/p&gt;
+&lt;p&gt;Here’s what you might do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pick out the things that need to be done today. Start a Short List for things you’re going to do today. That might be important tasks for big projects, urgent tasks that could result in damage if you don’t act, smaller admin tasks that you really should take care of today, and responding to important messages. I would recommend being ruthless and cutting out as much as you can, having just 5 things on your plate if that’s at all possible. Not everything needs to be done today, and not every email needs to be responded to.&lt;/li&gt;
+&lt;li&gt;Push some things to tomorrow and the rest of the week. If you have deadlines that can be pushed back (or renegotiated), do that. Spread the work out over the week, even into next week. What needs to be done tomorrow? What can wait a day or two longer?&lt;/li&gt;
+&lt;li&gt;Eliminate what you can. That might mean just not replying to some messages that aren’t that important and don’t really require a reply. It might mean telling some people that you can’t take on this project after all, or that you need to get out of the commitment that you said you’d do. Yes, this is uncomfortable. For now, just put them on a list called, “To Not Do,” and plan to figure out how to get out of them later.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;OK, you have some breathing room and a manageable list now! Let’s shrink that down even further and just pick one thing.&lt;/p&gt;
+&lt;h2 id=&#34;next-focus-on-one-thing&#34;&gt;Next: Focus on One Thing&lt;/h2&gt;
+&lt;p&gt;With a lot on your plate, it’s hard to pick one thing to focus on. But that’s exactly what I’m going to ask you to do.&lt;/p&gt;
+&lt;p&gt;Pick one thing, and give it your focus. Yes, there are a lot of other things you can focus on. Yes, they’re stressing you out and making it hard to focus. But think about it this way: if you allow it all to be in your head all the time, that will always be your mode of being. You’ll always be thinking about everything, stressing out about it all, with a frazzled mind … unless you start shifting.&lt;/p&gt;
+&lt;p&gt;The shift:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pick something to focus on. Look at the triaged list from the first section … if you have 5-6 things on this Short List, you can assess whether there’s any super urgent, time-sensitive things you need to take care of. If there are, pick one of them. If not, pick the most important one — probably the one you have been putting off doing.&lt;/li&gt;
+&lt;li&gt;Clear everything else away. Just for a little bit. Close all browser tabs, turn off notifications, close open applications, put your phone away.&lt;/li&gt;
+&lt;li&gt;Put that one task before you, and allow yourself to be with it completely. Pour yourself into it. Think of it as a practice, of letting go (of everything else), of focus, of radical simplicity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When you’re done (or after 15-20 minutes have gone by at least), you can switch to something else. But don’t allow yourself to switch until then.&lt;/p&gt;
+&lt;p&gt;By closing off all exits, by choosing one thing, by giving yourself completely to that thing … you’re now in a different mode that isn’t so stressful or spread thin. You’ve started a shift that will lead to focus and sanity.&lt;/p&gt;
+&lt;h2 id=&#34;third-schedule-time-to-simplify&#34;&gt;Third: Schedule Time to Simplify&lt;/h2&gt;
+&lt;p&gt;Remember the To Not Do list above? Schedule some time this week to start reducing your projects, saying no to people, getting out of commitments, crossing stuff off your task list … so that you can have some sanity back.&lt;/p&gt;
+&lt;p&gt;There are lots of little things that you’ve said “yes” to that you probably shouldn’t have. That’s why you’re overloaded. Protect your more important work, and your time off, and your peace of mind, by saying “no” to things that aren’t as important.&lt;/p&gt;
+&lt;p&gt;Schedule the time to simplify — you don’t have to do it today, but sometime soon — and you can then not have to worry about the things on your To Not Do list until then.&lt;/p&gt;
+&lt;h2 id=&#34;fourth-practice-mindful-focus&#34;&gt;Fourth: Practice Mindful Focus&lt;/h2&gt;
+&lt;p&gt;Go through the rest of the day with an attitude of “mindful focus.” That means that you are doing one thing at a time, being as present as you can, switching as little as you can.&lt;/p&gt;
+&lt;p&gt;Think of it as a settling of the mind. A new mode of being. A mindfulness practice (which means you won’t be perfect at it).&lt;/p&gt;
+&lt;p&gt;As you practice mindful focus, you’ll learn to practice doing things with an open heart, with curiosity and gratitude, and even joy. Try these one at a time as you get to do each task on your Short List.&lt;/p&gt;
+&lt;p&gt;You’ll find that you’re not so overloaded, but that each task is just perfect for that moment. And that’s a completely new relationship with the work that you do, and a new relationship with life.&lt;/p&gt;
+- https://jiamian2020.github.io/posts/post-1/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Chapter VI: Esmeralda</title>
+        <link>https://jiamian2020.github.io/posts/chapter-6/</link>
+        <pubDate>Fri, 14 Apr 2017 11:25:05 -0400</pubDate>
+        
+        <guid>https://jiamian2020.github.io/posts/chapter-6/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/posts/chapter-6/ -&lt;p&gt;We are delighted to be able to inform the reader, that during the whole of
+this scene, Gringoire and his piece had stood firm. His actors, spurred on
+by him, had not ceased to spout his comedy, and he had not ceased to
+listen to it. He had made up his mind about the tumult, and was determined
+to proceed to the end, not giving up the hope of a return of attention on
+the part of the public. This gleam of hope acquired fresh life, when he
+saw Quasimodo, Coppenole, and the deafening escort of the pope of the
+procession of fools quit the hall amid great uproar. The throng rushed
+eagerly after them. “Good,” he said to himself, “there go all the
+mischief-makers.” Unfortunately, all the mischief-makers constituted the
+entire audience. In the twinkling of an eye, the grand hall was empty.&lt;/p&gt;
+&lt;p&gt;To tell the truth, a few spectators still remained, some scattered, others
+in groups around the pillars, women, old men, or children, who had had
+enough of the uproar and tumult. Some scholars were still perched astride
+of the window-sills, engaged in gazing into the Place.&lt;/p&gt;
+&lt;p&gt;“Well,” thought Gringoire, “here are still as many as are required to hear
+the end of my mystery. They are few in number, but it is a choice
+audience, a lettered audience.”&lt;/p&gt;
+&lt;p&gt;An instant later, a symphony which had been intended to produce the
+greatest effect on the arrival of the Virgin, was lacking. Gringoire
+perceived that his music had been carried off by the procession of the
+Pope of the Fools. “Skip it,” said he, stoically.&lt;/p&gt;
+&lt;p&gt;He approached a group of bourgeois, who seemed to him to be discussing his
+piece. This is the fragment of conversation which he caught,—&lt;/p&gt;
+&lt;p&gt;“You know, Master Cheneteau, the Hôtel de Navarre, which belonged to
+Monsieur de Nemours?”&lt;/p&gt;
+&lt;p&gt;“Yes, opposite the Chapelle de Braque.”&lt;/p&gt;
+&lt;p&gt;“Well, the treasury has just let it to Guillaume Alixandre, historian, for
+six hivres, eight sols, parisian, a year.”&lt;/p&gt;
+&lt;p&gt;“How rents are going up!”&lt;/p&gt;
+&lt;p&gt;“Come,” said Gringoire to himself, with a sigh, “the others are
+listening.”&lt;/p&gt;
+&lt;p&gt;“Comrades,” suddenly shouted one of the young scamps from the window, “La
+Esmeralda! La Esmeralda in the Place!”&lt;/p&gt;
+&lt;p&gt;This word produced a magical effect. Every one who was left in the hall
+flew to the windows, climbing the walls in order to see, and repeating,
+“La Esmeralda! La Esmeralda?” At the same time, a great sound of applause
+was heard from without.&lt;/p&gt;
+&lt;p&gt;“What’s the meaning of this, of the Esmeralda?” said Gringoire, wringing
+his hands in despair. “Ah, good heavens! it seems to be the turn of the
+windows now.”&lt;/p&gt;
+&lt;p&gt;He returned towards the marble table, and saw that the representation had
+been interrupted. It was precisely at the instant when Jupiter should have
+appeared with his thunder. But Jupiter was standing motionless at the foot
+of the stage.&lt;/p&gt;
+&lt;p&gt;“Michel Giborne!” cried the irritated poet, “what are you doing there? Is
+that your part? Come up!”&lt;/p&gt;
+&lt;p&gt;“Alas!” said Jupiter, “a scholar has just seized the ladder.”&lt;/p&gt;
+&lt;p&gt;Gringoire looked. It was but too true. All communication between his plot
+and its solution was intercepted.&lt;/p&gt;
+&lt;p&gt;“The rascal,” he murmured. “And why did he take that ladder?”&lt;/p&gt;
+&lt;p&gt;“In order to go and see the Esmeralda,” replied Jupiter piteously. “He
+said, ‘Come, here’s a ladder that’s of no use!’ and he took it.”&lt;/p&gt;
+&lt;p&gt;This was the last blow. Gringoire received it with resignation.&lt;/p&gt;
+&lt;p&gt;“May the devil fly away with you!” he said to the comedian, “and if I get
+my pay, you shall receive yours.”&lt;/p&gt;
+&lt;p&gt;Then he beat a retreat, with drooping head, but the last in the field,
+like a general who has fought well.&lt;/p&gt;
+&lt;p&gt;And as he descended the winding stairs of the courts: “A fine rabble of
+asses and dolts these Parisians!” he muttered between his teeth; “they
+come to hear a mystery and don’t listen to it at all! They are engrossed
+by every one, by Chopin Trouillefou, by the cardinal, by Coppenole, by
+Quasimodo, by the devil! but by Madame the Virgin Mary, not at all. If I
+had known, I’d have given you Virgin Mary; you ninnies! And I! to come to
+see faces and behold only backs! to be a poet, and to reap the success of
+an apothecary! It is true that Homerus begged through the Greek towns, and
+that Naso died in exile among the Muscovites. But may the devil flay me if
+I understand what they mean with their Esmeralda! What is that word, in
+the first place?—‘tis Egyptian!”&lt;/p&gt;
+- https://jiamian2020.github.io/posts/chapter-6/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Chapter I: The Grand Hall</title>
+        <link>https://jiamian2020.github.io/posts/chapter-1/</link>
+        <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+        
+        <guid>https://jiamian2020.github.io/posts/chapter-1/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/posts/chapter-1/ -&lt;p&gt;Three hundred and forty-eight years, six months, and nineteen days ago
+to-day, the Parisians awoke to the sound of all the bells in the triple
+circuit of the city, the university, and the town ringing a full peal.&lt;/p&gt;
+&lt;p&gt;The sixth of January, 1482, is not, however, a day of which history has
+preserved the memory. There was nothing notable in the event which thus
+set the bells and the bourgeois of Paris in a ferment from early morning.
+It was neither an assault by the Picards nor the Burgundians, nor a hunt
+led along in procession, nor a revolt of scholars in the town of Laas, nor
+an entry of “our much dread lord, monsieur the king,” nor even a pretty
+hanging of male and female thieves by the courts of Paris. Neither was it
+the arrival, so frequent in the fifteenth century, of some plumed and
+bedizened embassy. It was barely two days since the last cavalcade of that
+nature, that of the Flemish ambassadors charged with concluding the
+marriage between the dauphin and Marguerite of Flanders, had made its
+entry into Paris, to the great annoyance of M. le Cardinal de Bourbon,
+who, for the sake of pleasing the king, had been obliged to assume an
+amiable mien towards this whole rustic rabble of Flemish burgomasters, and
+to regale them at his Hôtel de Bourbon, with a very “pretty morality,
+allegorical satire, and farce,” while a driving rain drenched the
+magnificent tapestries at his door.&lt;/p&gt;
+&lt;p&gt;What put the “whole population of Paris in commotion,” as Jehan de Troyes
+expresses it, on the sixth of January, was the double solemnity, united
+from time immemorial, of the Epiphany and the Feast of Fools.&lt;/p&gt;
+&lt;p&gt;On that day, there was to be a bonfire on the Place de Grève, a maypole at
+the Chapelle de Braque, and a mystery at the Palais de Justice. It had
+been cried, to the sound of the trumpet, the preceding evening at all the
+cross roads, by the provost’s men, clad in handsome, short, sleeveless
+coats of violet camelot, with large white crosses upon their breasts.&lt;/p&gt;
+&lt;p&gt;So the crowd of citizens, male and female, having closed their houses and
+shops, thronged from every direction, at early morn, towards some one of
+the three spots designated.&lt;/p&gt;
+&lt;p&gt;Each had made his choice; one, the bonfire; another, the maypole; another,
+the mystery play. It must be stated, in honor of the good sense of the
+loungers of Paris, that the greater part of this crowd directed their
+steps towards the bonfire, which was quite in season, or towards the
+mystery play, which was to be presented in the grand hall of the Palais de
+Justice (the courts of law), which was well roofed and walled; and that
+the curious left the poor, scantily flowered maypole to shiver all alone
+beneath the sky of January, in the cemetery of the Chapel of Braque.&lt;/p&gt;
+&lt;p&gt;The populace thronged the avenues of the law courts in particular, because
+they knew that the Flemish ambassadors, who had arrived two days
+previously, intended to be present at the representation of the mystery,
+and at the election of the Pope of the Fools, which was also to take place
+in the grand hall.&lt;/p&gt;
+&lt;p&gt;It was no easy matter on that day, to force one’s way into that grand
+hall, although it was then reputed to be the largest covered enclosure in
+the world (it is true that Sauval had not yet measured the grand hall of
+the Château of Montargis). The palace place, encumbered with people,
+offered to the curious gazers at the windows the aspect of a sea; into
+which five or six streets, like so many mouths of rivers, discharged every
+moment fresh floods of heads. The waves of this crowd, augmented
+incessantly, dashed against the angles of the houses which projected here
+and there, like so many promontories, into the irregular basin of the
+place. In the centre of the lofty Gothic* façade of the palace, the grand
+staircase, incessantly ascended and descended by a double current, which,
+after parting on the intermediate landing-place, flowed in broad waves
+along its lateral slopes,—the grand staircase, I say, trickled
+incessantly into the place, like a cascade into a lake. The cries, the
+laughter, the trampling of those thousands of feet, produced a great noise
+and a great clamor. From time to time, this noise and clamor redoubled;
+the current which drove the crowd towards the grand staircase flowed
+backwards, became troubled, formed whirlpools. This was produced by the
+buffet of an archer, or the horse of one of the provost’s sergeants, which
+kicked to restore order; an admirable tradition which the provostship has
+bequeathed to the constablery, the constablery to the &lt;em&gt;maréchaussée&lt;/em&gt;,
+the &lt;em&gt;maréchaussée&lt;/em&gt; to our &lt;em&gt;gendarmeri&lt;/em&gt; of Paris.&lt;/p&gt;
+- https://jiamian2020.github.io/posts/chapter-1/ - This is a customized copyright.</description>
+        </item>
+    
+    
+  </channel>
+</rss> 
