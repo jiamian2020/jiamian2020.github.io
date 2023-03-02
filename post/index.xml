@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Wed, 01 Mar 2023 00:20:59 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Mar 2023 23:42:44 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重新回顾JS的笔记系列(二)</title>
+      <link>https://jiamian2020.github.io/post/blog3/</link>
+      <pubDate>Thu, 02 Mar 2023 23:42:44 +0800</pubDate>
+      
+      <guid>https://jiamian2020.github.io/post/blog3/</guid>
+      <description>重新回顾JS的笔记系列(二) 1.数据类型 在 JavaScript 中有 8 种基本的数据类型（译注：7 种原始类型和 1 种引用类型）
+Number类型 number 类型代表整数和浮点数。
+数字可以有很多操作，比如，乘法 *、除法 /、加法 +、减法 - 。
+以及Infinity（无穷大）、-Infinity （无穷小）和 NaN（代表一个计算错误）。
+BigInt类型 在 JS 中，“number” 类型无法安全地表示大于 (2^53-1)（即 9007199254740991），或小于 -(2^53-1) 的整数。所有大于 (2^53-1) 的奇数都不能用 “number” 类型存储。
+BigInt 类型是最近被添加到 JavaScript 语言中的，用于表示任意长度的整数。
+可以通过将 n 附加到整数字段的末尾来创建 BigInt 值。
+例子：
+// 尾部的 &amp;#34;n&amp;#34; 表示这是一个 BigInt 类型 const bigInt = 1234567890123456789012345678901234567890n; String类型 在JS当中被用来表示字符串。
+在JS当中有三种包含字符串的方式
+let name1 = &amp;#34;John&amp;#34;; let name2 = &amp;#39;John&amp;#39;; //单引号和双引号没有什么太大的差别 //反引号是 功能扩展 引号。它们允许我们通过将变量和表达式包装在 ${…} 中，来将它们嵌入到字符串中。 //例如： let name = &amp;#34;John&amp;#34;; // 嵌入一个变量 alert( `Hello, ${name}!</description>
+    </item>
+    
     <item>
       <title>重新回顾JS的笔记系列(一)</title>
       <link>https://jiamian2020.github.io/post/blog2/</link>

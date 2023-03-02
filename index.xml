@@ -7,9 +7,197 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Wed, 01 Mar 2023 00:20:59 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Mar 2023 23:42:44 +0800</lastBuildDate>
     
         <atom:link href="https://jiamian2020.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>重新回顾JS的笔记系列(二)</title>
+        <link>https://jiamian2020.github.io/post/blog3/</link>
+        <pubDate>Thu, 02 Mar 2023 23:42:44 +0800</pubDate>
+        
+        <guid>https://jiamian2020.github.io/post/blog3/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/post/blog3/ -&lt;h2 id=&#34;重新回顾js的笔记系列二&#34;&gt;重新回顾JS的笔记系列(二)&lt;/h2&gt;
+&lt;h5 id=&#34;1数据类型&#34;&gt;1.数据类型&lt;/h5&gt;
+&lt;p&gt;在 &lt;code&gt;JavaScript &lt;/code&gt;中有 8 种基本的数据类型（译注：7 种原始类型和 1 种引用类型）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Number类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;number&lt;/em&gt; 类型代表整数和浮点数。&lt;/p&gt;
+&lt;p&gt;数字可以有很多操作，比如，乘法 &lt;code&gt;*&lt;/code&gt;、除法 &lt;code&gt;/&lt;/code&gt;、加法 &lt;code&gt;+&lt;/code&gt;、减法 &lt;code&gt;-&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;以及&lt;code&gt;Infinity&lt;/code&gt;（无穷大）、&lt;code&gt;-Infinity&lt;/code&gt; （无穷小）和 &lt;code&gt;NaN&lt;/code&gt;（代表一个计算错误）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BigInt类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 JS 中，“number” 类型无法安全地表示大于 &lt;code&gt;(2^53-1)&lt;/code&gt;（即 &lt;code&gt;9007199254740991&lt;/code&gt;），或小于 &lt;code&gt;-(2^53-1)&lt;/code&gt; 的整数。所有大于 &lt;code&gt;(2^53-1)&lt;/code&gt; 的奇数都不能用 “number” 类型存储。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;BigInt&lt;/code&gt; 类型是最近被添加到 JavaScript 语言中的，用于表示任意长度的整数。&lt;/p&gt;
+&lt;p&gt;可以通过将 &lt;code&gt;n&lt;/code&gt; 附加到整数字段的末尾来创建 &lt;code&gt;BigInt&lt;/code&gt; 值。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 尾部的 &amp;#34;n&amp;#34; 表示这是一个 BigInt 类型
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; bigInt = &lt;span style=&#34;color:#b452cd&#34;&gt;1234567890123456789012345678901234567890&lt;/span&gt;n;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;String类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在JS当中被用来表示字符串。&lt;/p&gt;
+&lt;p&gt;在JS当中有三种包含字符串的方式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; name1 = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; name2 = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;John&amp;#39;&lt;/span&gt;; &lt;span style=&#34;color:#228b22&#34;&gt;//单引号和双引号没有什么太大的差别
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//反引号是 功能扩展 引号。它们允许我们通过将变量和表达式包装在 ${…} 中，来将它们嵌入到字符串中。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//例如：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; name = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 嵌入一个变量
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;`Hello, &lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;${&lt;/span&gt;name&lt;span style=&#34;color:#cd5555&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;!`&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// Hello, John!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 嵌入一个表达式
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;`the result is &lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; + &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;`&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// the result is 3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//需要注意的是，这仅仅在反引号内有效，其他引号不允许这种嵌入。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;the result is ${1 + 2}&amp;#34;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// the result is ${1 + 2}（使用双引号则不会计算 ${…} 中的内容）
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Boolean类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;boolean 类型仅包含两个值：&lt;code&gt;true&lt;/code&gt; 和 &lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这种类型通常用于存储表示 yes 或 no 的值：&lt;code&gt;true&lt;/code&gt; 意味着 “yes，正确”，&lt;code&gt;false&lt;/code&gt; 意味着 “no。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; isGreater = &lt;span style=&#34;color:#b452cd&#34;&gt;4&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( isGreater ); &lt;span style=&#34;color:#228b22&#34;&gt;// true（比较的结果是 &amp;#34;yes&amp;#34;）
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;null值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特殊的 &lt;code&gt;null&lt;/code&gt; 值不属于上述任何一种类型，它构成了一个独立的类型，只包含 &lt;code&gt;null&lt;/code&gt; 值。&lt;/p&gt;
+&lt;p&gt;相比较于其他编程语言，JavaScript 中的 &lt;code&gt;null&lt;/code&gt; 不是一个“对不存在的 &lt;code&gt;object&lt;/code&gt; 的引用”或者 “null 指针”。&lt;/p&gt;
+&lt;p&gt;JavaScript 中的 &lt;code&gt;null&lt;/code&gt; 仅仅是一个代表“无”、“空”或“值未知”的特殊值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;undefined值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特殊值 &lt;code&gt;undefined&lt;/code&gt; 和 &lt;code&gt;null&lt;/code&gt; 一样自成类型。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;undefined&lt;/code&gt; 的含义是 &lt;code&gt;未被赋值&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果一个变量已被声明，但未被赋值，那么它的值就是 &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; age;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(age); &lt;span style=&#34;color:#228b22&#34;&gt;// 弹出 &amp;#34;undefined&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Object类型/Symbol类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;之后会详细描述&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;object&lt;/code&gt; 类型是一个特殊的类型，用于储存数据集合和更复杂的实体。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;symbol&lt;/code&gt; 类型用于创建对象的唯一标识符。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;typeof运算符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;typeof&lt;/code&gt; 运算符返回参数的类型。&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;typeof x&lt;/code&gt; 的调用会以字符串的形式返回数据类型：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;undefined&lt;/span&gt; &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;undefined&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;number&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#b452cd&#34;&gt;10&lt;/span&gt;n &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;bigint&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;boolean&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;string&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; Symbol(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;symbol&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#658b00&#34;&gt;Math&lt;/span&gt; &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;object&amp;#34;  (1)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;object&amp;#34;  (2) 注意此处是一个官方承认的错误
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; alert &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;function&amp;#34;  (3)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;2基本交互&#34;&gt;2.基本交互&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;alert&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;效果：在触发了某些条件之后，会出现一个弹窗，并且存在一个按钮等待用户按下&lt;/p&gt;
+&lt;p&gt;格式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Prompt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;效果：浏览器会出现一个带输入框的弹窗，以及一个确认键&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;result = prompt(title, [&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;default&lt;/span&gt;]);&lt;span style=&#34;color:#228b22&#34;&gt;//title 显示给用户的文本   default 可选的第二个参数，指定 input 框的初始值。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;confirm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;效果：&lt;code&gt;confirm&lt;/code&gt; 函数显示一个带有 &lt;code&gt;question&lt;/code&gt; 以及确定和取消两个按钮的模态窗口。&lt;/p&gt;
+&lt;p&gt;点击确定返回 &lt;code&gt;true&lt;/code&gt;，点击取消返回 &lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; isBoss = confirm(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;Are you the boss?&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( isBoss ); &lt;span style=&#34;color:#228b22&#34;&gt;// 如果“确定”按钮被按下，则显示 true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;3类型转换&#34;&gt;3.类型转换&lt;/h5&gt;
+&lt;p&gt;在上文当中提到了几种数据类型，在某些场合之下我们需要将一种数据类型转化为另外一种类型，此时需要的技术就是 类型转换。&lt;/p&gt;
+&lt;p&gt;基本存在三种类型的转换：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字符串转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通常有两种方法，就是 &lt;code&gt;alert()&lt;/code&gt;,或者使用 &lt;code&gt;String()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; value = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; value); &lt;span style=&#34;color:#228b22&#34;&gt;// boolean
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;value = &lt;span style=&#34;color:#658b00&#34;&gt;String&lt;/span&gt;(value); &lt;span style=&#34;color:#228b22&#34;&gt;// 现在，值是一个字符串形式的 &amp;#34;true&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; value); &lt;span style=&#34;color:#228b22&#34;&gt;// string
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;数字型转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通常使用&lt;code&gt;/&lt;/code&gt;来用于非number类型，或者&lt;code&gt;Number()&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;6&amp;#34;&lt;/span&gt; / &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// 3, string 类型的值被自动转换成 number 类型后进行计算
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; str = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; str); &lt;span style=&#34;color:#228b22&#34;&gt;// string
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; num = &lt;span style=&#34;color:#658b00&#34;&gt;Number&lt;/span&gt;(str); &lt;span style=&#34;color:#228b22&#34;&gt;// 变成 number 类型 123
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;typeof&lt;/span&gt; num); &lt;span style=&#34;color:#228b22&#34;&gt;// number
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意，&lt;code&gt;Number()&lt;/code&gt;存在转换的规则，具体如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;th&gt;转换为&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;undefined&lt;/td&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;true 和 false&lt;/td&gt;
+&lt;td&gt;1 and 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;去掉首尾空白字符（空格、换行符 &lt;code&gt;\n&lt;/code&gt;、制表符 &lt;code&gt;\t&lt;/code&gt; 等）后的纯数字字符串中含有的数字。如果剩余字符串为空，则转换结果为 &lt;code&gt;0&lt;/code&gt;。否则，将会从剩余字符串中“读取”数字。当类型转换出现 error 时返回 &lt;code&gt;NaN&lt;/code&gt;。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;具体示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Number&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;   123   &amp;#34;&lt;/span&gt;) ); &lt;span style=&#34;color:#228b22&#34;&gt;// 123
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Number&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;123z&amp;#34;&lt;/span&gt;) );      &lt;span style=&#34;color:#228b22&#34;&gt;// NaN（从字符串“读取”数字，读到 &amp;#34;z&amp;#34; 时出现错误）
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Number&lt;/span&gt;(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt;) );        &lt;span style=&#34;color:#228b22&#34;&gt;// 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Number&lt;/span&gt;(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;false&lt;/span&gt;) );       &lt;span style=&#34;color:#228b22&#34;&gt;// 0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;布尔型转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;转换规则：&lt;/p&gt;
+&lt;p&gt;[1] 直观上为“空”的值（如 &lt;code&gt;0&lt;/code&gt;、空字符串、&lt;code&gt;null&lt;/code&gt;、&lt;code&gt;undefined&lt;/code&gt; 和 &lt;code&gt;NaN&lt;/code&gt;）将变为 &lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;[2] 其他值变成 &lt;code&gt;true&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;具体示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Boolean&lt;/span&gt;(&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;) ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Boolean&lt;/span&gt;(&lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;) ); &lt;span style=&#34;color:#228b22&#34;&gt;// false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Boolean&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;) ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#658b00&#34;&gt;Boolean&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;) ); &lt;span style=&#34;color:#228b22&#34;&gt;// false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;4数学运算&#34;&gt;4.数学运算&lt;/h5&gt;
+- https://jiamian2020.github.io/post/blog3/ - This is a customized copyright.</description>
+        </item>
     
     
     
