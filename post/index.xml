@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Thu, 02 Mar 2023 23:42:44 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Mar 2023 13:53:56 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重新回顾JS的笔记系列(三)</title>
+      <link>https://jiamian2020.github.io/post/blog4/</link>
+      <pubDate>Fri, 03 Mar 2023 13:53:56 +0800</pubDate>
+      
+      <guid>https://jiamian2020.github.io/post/blog4/</guid>
+      <description>重新回顾JS的笔记系列(三) 1.基础运算符 基础运算符包括有：+、-、*、/、%(取余)、**（求幂）
+按照数学上的计算方法来使用就可以了。
+特殊用法1&amp;mdash;用二元运算符+来连接字符串 示例：
+let s = &amp;#34;my&amp;#34; + &amp;#34;string&amp;#34;; alert(s); // mystring //注意，此处的加法如果其中一个是字符串，那么在运算之后就会将整个式子全部转成一串字符串。 alert( &amp;#39;1&amp;#39; + 2 ); // &amp;#34;12&amp;#34; alert( 2 + &amp;#39;1&amp;#39; ); // &amp;#34;21&amp;#34; alert(2 + 2 + &amp;#39;1&amp;#39; ); // &amp;#34;41&amp;#34;，不是 &amp;#34;221&amp;#34; alert(&amp;#39;1&amp;#39; + 2 + 2); // &amp;#34;122&amp;#34;，不是 &amp;#34;14&amp;#34; //此外在二元运算符当中，只有+会触发这种形式，其余都不会 alert( 6 - &amp;#39;2&amp;#39; ); // 4，将 &amp;#39;2&amp;#39; 转换为数字 alert( &amp;#39;6&amp;#39; / &amp;#39;2&amp;#39; ); // 3，将两个运算元都转换为数字 特殊用法2&amp;mdash;使用一元运算符+来进行数字转化 // 转化非数字,效果类似 number() alert( +true ); // 1 alert( +&amp;#34;&amp;#34; ); // 0 //这个方法可以用来改善特殊用法1中的转化字符串 //示例： let apples = &amp;#34;2&amp;#34;; let oranges = &amp;#34;3&amp;#34;; alert( apples + oranges ); // &amp;#34;23&amp;#34;，二元运算符加号合并字符串 let apples = &amp;#34;2&amp;#34;; let oranges = &amp;#34;3&amp;#34;; // 在二元运算符加号起作用之前，所有的值都被转化为了数字 alert( +apples + +oranges ); // 5 2.</description>
+    </item>
+    
     <item>
       <title>重新回顾JS的笔记系列(二)</title>
       <link>https://jiamian2020.github.io/post/blog3/</link>

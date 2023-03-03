@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html><head>
+<title>重新回顾JS的笔记系列(三)</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="重新回顾JS的笔记系列(三)" />
+<meta property="og:description" content="重新回顾JS的笔记系列(三) 1.基础运算符 基础运算符包括有：&#43;、-、*、/、%(取余)、**（求幂）
+按照数学上的计算方法来使用就可以了。
+特殊用法1&mdash;用二元运算符&#43;来连接字符串 示例：
+let s = &#34;my&#34; &#43; &#34;string&#34;; alert(s); // mystring //注意，此处的加法如果其中一个是字符串，那么在运算之后就会将整个式子全部转成一串字符串。 alert( &#39;1&#39; &#43; 2 ); // &#34;12&#34; alert( 2 &#43; &#39;1&#39; ); // &#34;21&#34; alert(2 &#43; 2 &#43; &#39;1&#39; ); // &#34;41&#34;，不是 &#34;221&#34; alert(&#39;1&#39; &#43; 2 &#43; 2); // &#34;122&#34;，不是 &#34;14&#34; //此外在二元运算符当中，只有&#43;会触发这种形式，其余都不会 alert( 6 - &#39;2&#39; ); // 4，将 &#39;2&#39; 转换为数字 alert( &#39;6&#39; / &#39;2&#39; ); // 3，将两个运算元都转换为数字 特殊用法2&mdash;使用一元运算符&#43;来进行数字转化 // 转化非数字,效果类似 number() alert( &#43;true ); // 1 alert( &#43;&#34;&#34; ); // 0 //这个方法可以用来改善特殊用法1中的转化字符串 //示例： let apples = &#34;2&#34;; let oranges = &#34;3&#34;; alert( apples &#43; oranges ); // &#34;23&#34;，二元运算符加号合并字符串 let apples = &#34;2&#34;; let oranges = &#34;3&#34;; // 在二元运算符加号起作用之前，所有的值都被转化为了数字 alert( &#43;apples &#43; &#43;oranges ); // 5 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jiamian2020.github.io/post/blog4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-03-03T13:53:56+08:00" />
+<meta property="article:modified_time" content="2023-03-03T13:53:56+08:00" /><meta property="og:site_name" content="My Blog" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="重新回顾JS的笔记系列(三)"/>
+<meta name="twitter:description" content="重新回顾JS的笔记系列(三) 1.基础运算符 基础运算符包括有：&#43;、-、*、/、%(取余)、**（求幂）
+按照数学上的计算方法来使用就可以了。
+特殊用法1&mdash;用二元运算符&#43;来连接字符串 示例：
+let s = &#34;my&#34; &#43; &#34;string&#34;; alert(s); // mystring //注意，此处的加法如果其中一个是字符串，那么在运算之后就会将整个式子全部转成一串字符串。 alert( &#39;1&#39; &#43; 2 ); // &#34;12&#34; alert( 2 &#43; &#39;1&#39; ); // &#34;21&#34; alert(2 &#43; 2 &#43; &#39;1&#39; ); // &#34;41&#34;，不是 &#34;221&#34; alert(&#39;1&#39; &#43; 2 &#43; 2); // &#34;122&#34;，不是 &#34;14&#34; //此外在二元运算符当中，只有&#43;会触发这种形式，其余都不会 alert( 6 - &#39;2&#39; ); // 4，将 &#39;2&#39; 转换为数字 alert( &#39;6&#39; / &#39;2&#39; ); // 3，将两个运算元都转换为数字 特殊用法2&mdash;使用一元运算符&#43;来进行数字转化 // 转化非数字,效果类似 number() alert( &#43;true ); // 1 alert( &#43;&#34;&#34; ); // 0 //这个方法可以用来改善特殊用法1中的转化字符串 //示例： let apples = &#34;2&#34;; let oranges = &#34;3&#34;; alert( apples &#43; oranges ); // &#34;23&#34;，二元运算符加号合并字符串 let apples = &#34;2&#34;; let oranges = &#34;3&#34;; // 在二元运算符加号起作用之前，所有的值都被转化为了数字 alert( &#43;apples &#43; &#43;oranges ); // 5 2."/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/scss/journal.min.7c01e9f6fb2f6083d79d2f3a32ec6b7901e262e94a52a64a542aef98bc5bda64.css" integrity="sha256-fAHp9vsvYIPXnS86MuxreQHiYulKUqZKVCrvmLxb2mQ=" media="screen">
+
+
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS Feed
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e4%b8%89" class="nav-重新回顾js的笔记系列三">
+									重新回顾JS的笔记系列(三)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://jiamian2020.github.io">
+            A Hugo Site
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://jiamian2020.github.io">
+        <div class="single-column-header-title">A Hugo Site</div>
+        
+        <div class="single-column-header-subtitle">Themed by Diary.</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    重新回顾JS的笔记系列(三)
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-03-03 13:53
+                        </time>
+                        
+
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="重新回顾js的笔记系列三">重新回顾JS的笔记系列(三)</h2>
+<h5 id="1基础运算符">1.基础运算符</h5>
+<p>基础运算符包括有：+、-、*、/、%(取余)、**（求幂）</p>
+<p>按照数学上的计算方法来使用就可以了。</p>
+<ul>
+<li>特殊用法1&mdash;<strong>用二元运算符+来连接字符串</strong></li>
+</ul>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> s = <span style="color:#cd5555">&#34;my&#34;</span> + <span style="color:#cd5555">&#34;string&#34;</span>;
+</span></span><span style="display:flex;"><span>alert(s); <span style="color:#228b22">// mystring
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">//注意，此处的加法如果其中一个是字符串，那么在运算之后就会将整个式子全部转成一串字符串。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#cd5555">&#39;1&#39;</span> + <span style="color:#b452cd">2</span> ); <span style="color:#228b22">// &#34;12&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#b452cd">2</span> + <span style="color:#cd5555">&#39;1&#39;</span> ); <span style="color:#228b22">// &#34;21&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert(<span style="color:#b452cd">2</span> + <span style="color:#b452cd">2</span> + <span style="color:#cd5555">&#39;1&#39;</span> ); <span style="color:#228b22">// &#34;41&#34;，不是 &#34;221&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert(<span style="color:#cd5555">&#39;1&#39;</span> + <span style="color:#b452cd">2</span> + <span style="color:#b452cd">2</span>); <span style="color:#228b22">// &#34;122&#34;，不是 &#34;14&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">//此外在二元运算符当中，只有+会触发这种形式，其余都不会
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#b452cd">6</span> - <span style="color:#cd5555">&#39;2&#39;</span> ); <span style="color:#228b22">// 4，将 &#39;2&#39; 转换为数字
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#cd5555">&#39;6&#39;</span> / <span style="color:#cd5555">&#39;2&#39;</span> ); <span style="color:#228b22">// 3，将两个运算元都转换为数字
+</span></span></span></code></pre></div><ul>
+<li>特殊用法2&mdash;使用一元运算符+来进行数字转化</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#228b22">// 转化非数字,效果类似 number()
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( +<span style="color:#8b008b;font-weight:bold">true</span> ); <span style="color:#228b22">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( +<span style="color:#cd5555">&#34;&#34;</span> );   <span style="color:#228b22">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">//这个方法可以用来改善特殊用法1中的转化字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//示例：
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">let</span> apples = <span style="color:#cd5555">&#34;2&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> oranges = <span style="color:#cd5555">&#34;3&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( apples + oranges ); <span style="color:#228b22">// &#34;23&#34;，二元运算符加号合并字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> apples = <span style="color:#cd5555">&#34;2&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> oranges = <span style="color:#cd5555">&#34;3&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 在二元运算符加号起作用之前，所有的值都被转化为了数字
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( +apples + +oranges ); <span style="color:#228b22">// 5
+</span></span></span></code></pre></div><h5 id="2运算符优先级">2.运算符优先级</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优先级</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">一元加号</td>
+<td style="text-align:left"><code>+</code></td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">一元负号</td>
+<td style="text-align:left"><code>-</code></td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left">求幂</td>
+<td style="text-align:left"><code>**</code></td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">乘号</td>
+<td style="text-align:left"><code>*</code></td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">除号</td>
+<td style="text-align:left"><code>/</code></td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">加号</td>
+<td style="text-align:left"><code>+</code></td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">减号</td>
+<td style="text-align:left"><code>-</code></td>
+</tr>
+<tr>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">赋值符</td>
+<td style="text-align:left"><code>=</code></td>
+</tr>
+<tr>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+<td style="text-align:left">-…</td>
+</tr>
+</tbody>
+</table>
+<p>存在规则：</p>
+<ul>
+<li>一元优先级大于二元优先级</li>
+<li>数字越大，越先执行</li>
+</ul>
+<h5 id="3自增自减">3.自增、自减</h5>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> counter = <span style="color:#b452cd">2</span>;
+</span></span><span style="display:flex;"><span>counter++;      <span style="color:#228b22">// 和 counter = counter + 1 效果一样，但是更简洁
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( counter ); <span style="color:#228b22">// 3
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>counter--;      <span style="color:#228b22">// 和 counter = counter - 1 效果一样，但是更简洁
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( counter ); <span style="color:#228b22">// 2
+</span></span></span></code></pre></div><ul>
+<li>不同形式的自增自减：</li>
+</ul>
+<p>​          当运算符置于变量后，被称为“后置形式”：<code>counter++</code>。</p>
+<p>​          当运算符置于变量前，被称为“前置形式”：<code>++counter</code>。</p>
+<p>（自增的优先级高于绝大多数的运算符）</p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> counter = <span style="color:#b452cd">1</span>;
+</span></span><span style="display:flex;"><span>alert( <span style="color:#b452cd">2</span> * ++counter ); <span style="color:#228b22">// 4
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> counter = <span style="color:#b452cd">1</span>;
+</span></span><span style="display:flex;"><span>alert( <span style="color:#b452cd">2</span> * counter++ ); <span style="color:#228b22">// 2，因为 counter++ 返回的是“旧值”
+</span></span></span></code></pre></div><h5 id="4位运算符使用的频率比较低">4.位运算符（使用的频率比较低）</h5>
+<ul>
+<li>按位与 ( <code>&amp;</code> )</li>
+<li>按位或 ( <code>|</code> )</li>
+<li>按位异或 ( <code>^</code> )</li>
+<li>按位非 ( <code>~</code> )</li>
+<li>左移 ( <code>&lt;&lt;</code> )</li>
+<li>右移 ( <code>&gt;&gt;</code> )</li>
+<li>无符号右移 ( <code>&gt;&gt;&gt;</code> )</li>
+</ul>
+<h5 id="5值的比较">5.值的比较</h5>
+<ul>
+<li>基本编写方式如下：</li>
+</ul>
+<p>​             [1] 大于 / 小于：<code>a &gt; b</code>，<code>a &lt; b</code>。</p>
+<p>​             [2] 大于等于 / 小于等于：<code>a &gt;= b</code>，<code>a &lt;= b</code>。</p>
+<p>​             [3] 检查两个值的相等：<code>a == b</code>，请注意双等号 <code>==</code> 表示相等性检查，而单等号 <code>a = b</code> 表示赋值。</p>
+<p>​             [4] 检查两个值不相等：不相等在数学中的符号是 <code>≠</code>，但在 JavaScript 中写成 <code>a != b</code>。</p>
+<ul>
+<li>注意，比较后返回的结果是 Boolean 类型</li>
+</ul>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#b452cd">2</span> &gt; <span style="color:#b452cd">1</span> );  <span style="color:#228b22">// true（正确）
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#b452cd">2</span> == <span style="color:#b452cd">1</span> ); <span style="color:#228b22">// false（错误）
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#b452cd">2</span> != <span style="color:#b452cd">1</span> ); <span style="color:#228b22">// true（正确）
+</span></span></span></code></pre></div><h5 id="6字符串的比较">6.字符串的比较</h5>
+<p>注意，在JS当中，JS会按照从前往后的顺序来比较字符。</p>
+<p>换言之，字符串是按字符（母）逐个进行比较的。</p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#cd5555">&#39;Z&#39;</span> &gt; <span style="color:#cd5555">&#39;A&#39;</span> ); <span style="color:#228b22">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#cd5555">&#39;Glow&#39;</span> &gt; <span style="color:#cd5555">&#39;Glee&#39;</span> ); <span style="color:#228b22">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#cd5555">&#39;Bee&#39;</span> &gt; <span style="color:#cd5555">&#39;Be&#39;</span> ); <span style="color:#228b22">// true
+</span></span></span></code></pre></div><p>比较的方法如下：</p>
+<ol>
+<li>首先比较两个字符串的首位字符大小。</li>
+<li>如果一方字符较大（或较小），则该字符串大于（或小于）另一个字符串。算法结束。</li>
+<li>否则，如果两个字符串的首位字符相等，则继续取出两个字符串各自的后一位字符进行比较。</li>
+<li>重复上述步骤进行比较，直到比较完成某字符串的所有字符为止。</li>
+<li>如果两个字符串的字符同时用完，那么则判定它们相等，否则未结束（还有未比较的字符）的字符串更大。</li>
+</ol>
+<h5 id="7不同类型之间的比较">7.不同类型之间的比较</h5>
+<p>当对不同类型的值进行比较时，JavaScript 会首先将其转化为数字（number）再判定大小。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#cd5555">&#39;2&#39;</span> &gt; <span style="color:#b452cd">1</span> ); <span style="color:#228b22">// true，字符串 &#39;2&#39; 会被转化为数字 2
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#cd5555">&#39;01&#39;</span> == <span style="color:#b452cd">1</span> ); <span style="color:#228b22">// true，字符串 &#39;01&#39; 会被转化为数字 1
+</span></span></span></code></pre></div><p>对于布尔类型值，<code>true</code> 会被转化为 <code>1</code>、<code>false</code> 转化为 <code>0</code>。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#8b008b;font-weight:bold">true</span> == <span style="color:#b452cd">1</span> ); <span style="color:#228b22">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#8b008b;font-weight:bold">false</span> == <span style="color:#b452cd">0</span> ); <span style="color:#228b22">// true
+</span></span></span></code></pre></div><h5 id="8严格相等">8.严格相等</h5>
+<p>普通的相等性检查 <code>==</code> 存在一个问题，它不能区分出 <code>0</code> 和 <code>false</code>：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#b452cd">0</span> == <span style="color:#8b008b;font-weight:bold">false</span> ); <span style="color:#228b22">// true
+</span></span></span></code></pre></div><p>也同样无法区分空字符串和 <code>false</code>：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#cd5555">&#39;&#39;</span> == <span style="color:#8b008b;font-weight:bold">false</span> ); <span style="color:#228b22">// true
+</span></span></span></code></pre></div><p>为了区分两者，这里采用了<code>===</code>来进行区别（原理为：<code>===</code>在进行比较的时候是不会进行类型转化的）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#b452cd">0</span> === <span style="color:#8b008b;font-weight:bold">false</span> ); <span style="color:#228b22">// false，因为被比较值的数据类型不同
+</span></span></span></code></pre></div><p>同样的，与“不相等”符号 <code>!=</code> 类似，“严格不相等”表示为 <code>!==</code>。</p>
+<ul>
+<li>特殊情况：</li>
+</ul>
+<p><strong>一、对 null 和 undefined 进行比较</strong></p>
+<ol>
+<li>
+<p>当使用严格相等 <code>===</code> 比较二者时，它们不相等，因为它们属于不同的类型。</p>
+</li>
+<li>
+<p>当使用非严格相等 <code>==</code> 比较二者时，会判定它们相等。</p>
+</li>
+</ol>
+<p>注意：当使用数学式或其他比较方法 <code>&lt; &gt; &lt;= &gt;=</code> 时：</p>
+<p><code>null/undefined</code> 会被转化为数字：<code>null</code> 被转化为 <code>0</code>，<code>undefined</code> 被转化为 <code>NaN</code>。</p>
+<p><strong>比较 <code>null</code> 和 0 可得：</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#8b008b;font-weight:bold">null</span> &gt; <span style="color:#b452cd">0</span> );  <span style="color:#228b22">// (1) false
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#8b008b;font-weight:bold">null</span> == <span style="color:#b452cd">0</span> ); <span style="color:#228b22">// (2) false
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#8b008b;font-weight:bold">null</span> &gt;= <span style="color:#b452cd">0</span> ); <span style="color:#228b22">// (3) true
+</span></span></span></code></pre></div><p>是的，上面的结果完全打破了你对数学的认识。在最后一行代码显示“<code>null</code> 大于等于 0”的情况下，前两行代码中一定会有一个是正确的，然而事实表明它们的结果都是 false。</p>
+<p>为什么会出现这种反常结果，这是因为相等性检查 <code>==</code> 和普通比较符 <code>&gt; &lt; &gt;= &lt;=</code> 的代码逻辑是相互独立的。进行值的比较时，<code>null</code> 会被转化为数字，因此它被转化为了 <code>0</code>。这就是为什么（3）中 <code>null &gt;= 0</code> 返回值是 true，（1）中 <code>null &gt; 0</code> 返回值是 false。</p>
+<p>另一方面，<code>undefined</code> 和 <code>null</code> 在相等性检查 <code>==</code> 中不会进行任何的类型转换，它们有自己独立的比较规则，所以除了它们之间互等外，不会等于任何其他的值。这就解释了为什么（2）中 <code>null == 0</code> 会返回 false。</p>
+<p><strong><code>undefined</code> 不应该被与其他值进行比较：</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>alert( <span style="color:#8b008b;font-weight:bold">undefined</span> &gt; <span style="color:#b452cd">0</span> ); <span style="color:#228b22">// false (1)
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#8b008b;font-weight:bold">undefined</span> &lt; <span style="color:#b452cd">0</span> ); <span style="color:#228b22">// false (2)
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#8b008b;font-weight:bold">undefined</span> == <span style="color:#b452cd">0</span> ); <span style="color:#228b22">// false (3)
+</span></span></span></code></pre></div><p>为何它看起来如此厌恶 0？返回值都是 false！</p>
+<p>原因如下：</p>
+<ul>
+<li><code>(1)</code> 和 <code>(2)</code> 都返回 <code>false</code> 是因为 <code>undefined</code> 在比较中被转换为了 <code>NaN</code>，而 <code>NaN</code> 是一个特殊的数值型值，它与任何值进行比较都会返回 <code>false</code>。</li>
+<li><code>(3)</code> 返回 <code>false</code> 是因为这是一个相等性检查，而 <code>undefined</code> 只与 <code>null</code> 相等，不会与其他值相等。</li>
+</ul>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-03-03</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/post/blog3/">
+			Previous<br>重新回顾JS的笔记系列(二)
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/repo"
+        data-repo-id=""
+        data-category="General"
+        data-category-id="*********************"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://jiamian2020.github.io">
+    
+        <div class="nav-title">
+            A Hugo Site
+        </div>
+        
+        <div class="nav-subtitle">
+            Themed by Diary.
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS Feed
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e4%b8%89" class="nav-重新回顾js的笔记系列三">
+									重新回顾JS的笔记系列(三)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

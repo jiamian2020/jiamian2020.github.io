@@ -7,9 +7,237 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Thu, 02 Mar 2023 23:42:44 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Mar 2023 13:53:56 +0800</lastBuildDate>
     
         <atom:link href="https://jiamian2020.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>重新回顾JS的笔记系列(三)</title>
+        <link>https://jiamian2020.github.io/post/blog4/</link>
+        <pubDate>Fri, 03 Mar 2023 13:53:56 +0800</pubDate>
+        
+        <guid>https://jiamian2020.github.io/post/blog4/</guid>
+        <description>A Hugo Site https://jiamian2020.github.io/post/blog4/ -&lt;h2 id=&#34;重新回顾js的笔记系列三&#34;&gt;重新回顾JS的笔记系列(三)&lt;/h2&gt;
+&lt;h5 id=&#34;1基础运算符&#34;&gt;1.基础运算符&lt;/h5&gt;
+&lt;p&gt;基础运算符包括有：+、-、*、/、%(取余)、**（求幂）&lt;/p&gt;
+&lt;p&gt;按照数学上的计算方法来使用就可以了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特殊用法1&amp;mdash;&lt;strong&gt;用二元运算符+来连接字符串&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; s = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;my&amp;#34;&lt;/span&gt; + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert(s); &lt;span style=&#34;color:#228b22&#34;&gt;// mystring
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//注意，此处的加法如果其中一个是字符串，那么在运算之后就会将整个式子全部转成一串字符串。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; + &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;12&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;21&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert(&lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; + &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;41&amp;#34;，不是 &amp;#34;221&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; + &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; + &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;122&amp;#34;，不是 &amp;#34;14&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//此外在二元运算符当中，只有+会触发这种形式，其余都不会
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;6&lt;/span&gt; - &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// 4，将 &amp;#39;2&amp;#39; 转换为数字
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;6&amp;#39;&lt;/span&gt; / &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// 3，将两个运算元都转换为数字
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;特殊用法2&amp;mdash;使用一元运算符+来进行数字转化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 转化非数字,效果类似 number()
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( +&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( +&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; );   &lt;span style=&#34;color:#228b22&#34;&gt;// 0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//这个方法可以用来改善特殊用法1中的转化字符串
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//示例：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; apples = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; oranges = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( apples + oranges ); &lt;span style=&#34;color:#228b22&#34;&gt;// &amp;#34;23&amp;#34;，二元运算符加号合并字符串
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; apples = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; oranges = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 在二元运算符加号起作用之前，所有的值都被转化为了数字
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( +apples + +oranges ); &lt;span style=&#34;color:#228b22&#34;&gt;// 5
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;2运算符优先级&#34;&gt;2.运算符优先级&lt;/h5&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;优先级&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;名称&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;符号&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;15&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;一元加号&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;+&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;15&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;一元负号&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;14&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;求幂&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;**&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;13&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;乘号&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;*&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;13&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;除号&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;12&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;加号&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;+&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;12&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;减号&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;赋值符&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;=&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;…&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;存在规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一元优先级大于二元优先级&lt;/li&gt;
+&lt;li&gt;数字越大，越先执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;3自增自减&#34;&gt;3.自增、自减&lt;/h5&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; counter = &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;counter++;      &lt;span style=&#34;color:#228b22&#34;&gt;// 和 counter = counter + 1 效果一样，但是更简洁
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( counter ); &lt;span style=&#34;color:#228b22&#34;&gt;// 3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;counter--;      &lt;span style=&#34;color:#228b22&#34;&gt;// 和 counter = counter - 1 效果一样，但是更简洁
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( counter ); &lt;span style=&#34;color:#228b22&#34;&gt;// 2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;不同形式的自增自减：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​          当运算符置于变量后，被称为“后置形式”：&lt;code&gt;counter++&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;​          当运算符置于变量前，被称为“前置形式”：&lt;code&gt;++counter&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;（自增的优先级高于绝大多数的运算符）&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; counter = &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; * ++counter ); &lt;span style=&#34;color:#228b22&#34;&gt;// 4
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; counter = &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; * counter++ ); &lt;span style=&#34;color:#228b22&#34;&gt;// 2，因为 counter++ 返回的是“旧值”
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;4位运算符使用的频率比较低&#34;&gt;4.位运算符（使用的频率比较低）&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;按位与 ( &lt;code&gt;&amp;amp;&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;按位或 ( &lt;code&gt;|&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;按位异或 ( &lt;code&gt;^&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;按位非 ( &lt;code&gt;~&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;左移 ( &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;右移 ( &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;无符号右移 ( &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;5值的比较&#34;&gt;5.值的比较&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;基本编写方式如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​             [1] 大于 / 小于：&lt;code&gt;a &amp;gt; b&lt;/code&gt;，&lt;code&gt;a &amp;lt; b&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;​             [2] 大于等于 / 小于等于：&lt;code&gt;a &amp;gt;= b&lt;/code&gt;，&lt;code&gt;a &amp;lt;= b&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;​             [3] 检查两个值的相等：&lt;code&gt;a == b&lt;/code&gt;，请注意双等号 &lt;code&gt;==&lt;/code&gt; 表示相等性检查，而单等号 &lt;code&gt;a = b&lt;/code&gt; 表示赋值。&lt;/p&gt;
+&lt;p&gt;​             [4] 检查两个值不相等：不相等在数学中的符号是 &lt;code&gt;≠&lt;/code&gt;，但在 JavaScript 中写成 &lt;code&gt;a != b&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注意，比较后返回的结果是 Boolean 类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; );  &lt;span style=&#34;color:#228b22&#34;&gt;// true（正确）
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; == &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// false（错误）
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; != &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true（正确）
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;6字符串的比较&#34;&gt;6.字符串的比较&lt;/h5&gt;
+&lt;p&gt;注意，在JS当中，JS会按照从前往后的顺序来比较字符。&lt;/p&gt;
+&lt;p&gt;换言之，字符串是按字符（母）逐个进行比较的。&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Z&amp;#39;&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;A&amp;#39;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Glow&amp;#39;&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Glee&amp;#39;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Bee&amp;#39;&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Be&amp;#39;&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;比较的方法如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先比较两个字符串的首位字符大小。&lt;/li&gt;
+&lt;li&gt;如果一方字符较大（或较小），则该字符串大于（或小于）另一个字符串。算法结束。&lt;/li&gt;
+&lt;li&gt;否则，如果两个字符串的首位字符相等，则继续取出两个字符串各自的后一位字符进行比较。&lt;/li&gt;
+&lt;li&gt;重复上述步骤进行比较，直到比较完成某字符串的所有字符为止。&lt;/li&gt;
+&lt;li&gt;如果两个字符串的字符同时用完，那么则判定它们相等，否则未结束（还有未比较的字符）的字符串更大。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;7不同类型之间的比较&#34;&gt;7.不同类型之间的比较&lt;/h5&gt;
+&lt;p&gt;当对不同类型的值进行比较时，JavaScript 会首先将其转化为数字（number）再判定大小。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true，字符串 &amp;#39;2&amp;#39; 会被转化为数字 2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;01&amp;#39;&lt;/span&gt; == &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true，字符串 &amp;#39;01&amp;#39; 会被转化为数字 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对于布尔类型值，&lt;code&gt;true&lt;/code&gt; 会被转化为 &lt;code&gt;1&lt;/code&gt;、&lt;code&gt;false&lt;/code&gt; 转化为 &lt;code&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt; == &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;false&lt;/span&gt; == &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;8严格相等&#34;&gt;8.严格相等&lt;/h5&gt;
+&lt;p&gt;普通的相等性检查 &lt;code&gt;==&lt;/code&gt; 存在一个问题，它不能区分出 &lt;code&gt;0&lt;/code&gt; 和 &lt;code&gt;false&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; == &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;false&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也同样无法区分空字符串和 &lt;code&gt;false&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; == &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;false&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;为了区分两者，这里采用了&lt;code&gt;===&lt;/code&gt;来进行区别（原理为：&lt;code&gt;===&lt;/code&gt;在进行比较的时候是不会进行类型转化的）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; === &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;false&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// false，因为被比较值的数据类型不同
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;同样的，与“不相等”符号 &lt;code&gt;!=&lt;/code&gt; 类似，“严格不相等”表示为 &lt;code&gt;!==&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特殊情况：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;一、对 null 和 undefined 进行比较&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;当使用严格相等 &lt;code&gt;===&lt;/code&gt; 比较二者时，它们不相等，因为它们属于不同的类型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当使用非严格相等 &lt;code&gt;==&lt;/code&gt; 比较二者时，会判定它们相等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注意：当使用数学式或其他比较方法 &lt;code&gt;&amp;lt; &amp;gt; &amp;lt;= &amp;gt;=&lt;/code&gt; 时：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;null/undefined&lt;/code&gt; 会被转化为数字：&lt;code&gt;null&lt;/code&gt; 被转化为 &lt;code&gt;0&lt;/code&gt;，&lt;code&gt;undefined&lt;/code&gt; 被转化为 &lt;code&gt;NaN&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;比较 &lt;code&gt;null&lt;/code&gt; 和 0 可得：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;null&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; );  &lt;span style=&#34;color:#228b22&#34;&gt;// (1) false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;null&lt;/span&gt; == &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// (2) false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;null&lt;/span&gt; &amp;gt;= &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// (3) true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;是的，上面的结果完全打破了你对数学的认识。在最后一行代码显示“&lt;code&gt;null&lt;/code&gt; 大于等于 0”的情况下，前两行代码中一定会有一个是正确的，然而事实表明它们的结果都是 false。&lt;/p&gt;
+&lt;p&gt;为什么会出现这种反常结果，这是因为相等性检查 &lt;code&gt;==&lt;/code&gt; 和普通比较符 &lt;code&gt;&amp;gt; &amp;lt; &amp;gt;= &amp;lt;=&lt;/code&gt; 的代码逻辑是相互独立的。进行值的比较时，&lt;code&gt;null&lt;/code&gt; 会被转化为数字，因此它被转化为了 &lt;code&gt;0&lt;/code&gt;。这就是为什么（3）中 &lt;code&gt;null &amp;gt;= 0&lt;/code&gt; 返回值是 true，（1）中 &lt;code&gt;null &amp;gt; 0&lt;/code&gt; 返回值是 false。&lt;/p&gt;
+&lt;p&gt;另一方面，&lt;code&gt;undefined&lt;/code&gt; 和 &lt;code&gt;null&lt;/code&gt; 在相等性检查 &lt;code&gt;==&lt;/code&gt; 中不会进行任何的类型转换，它们有自己独立的比较规则，所以除了它们之间互等外，不会等于任何其他的值。这就解释了为什么（2）中 &lt;code&gt;null == 0&lt;/code&gt; 会返回 false。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;undefined&lt;/code&gt; 不应该被与其他值进行比较：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;undefined&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// false (1)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;undefined&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// false (2)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;alert( &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;undefined&lt;/span&gt; == &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; ); &lt;span style=&#34;color:#228b22&#34;&gt;// false (3)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;为何它看起来如此厌恶 0？返回值都是 false！&lt;/p&gt;
+&lt;p&gt;原因如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;(1)&lt;/code&gt; 和 &lt;code&gt;(2)&lt;/code&gt; 都返回 &lt;code&gt;false&lt;/code&gt; 是因为 &lt;code&gt;undefined&lt;/code&gt; 在比较中被转换为了 &lt;code&gt;NaN&lt;/code&gt;，而 &lt;code&gt;NaN&lt;/code&gt; 是一个特殊的数值型值，它与任何值进行比较都会返回 &lt;code&gt;false&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(3)&lt;/code&gt; 返回 &lt;code&gt;false&lt;/code&gt; 是因为这是一个相等性检查，而 &lt;code&gt;undefined&lt;/code&gt; 只与 &lt;code&gt;null&lt;/code&gt; 相等，不会与其他值相等。&lt;/li&gt;
+&lt;/ul&gt;
+- https://jiamian2020.github.io/post/blog4/ - This is a customized copyright.</description>
+        </item>
     
     
     
