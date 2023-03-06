@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Sat, 04 Mar 2023 21:27:08 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Mar 2023 12:44:59 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重新回顾JS的笔记系列(五）</title>
+      <link>https://jiamian2020.github.io/post/blog6/</link>
+      <pubDate>Mon, 06 Mar 2023 12:44:59 +0800</pubDate>
+      
+      <guid>https://jiamian2020.github.io/post/blog6/</guid>
+      <description>重新回顾JS的笔记系列(五） 1. switch 语句 switch 语句可以替代多个 if 判断。
+switch 语句为多分支选择的情况提供了一个更具描述性的方式。
+语法结构： switch 语句有至少一个 case 代码块和一个可选的 default 代码块。
+switch(x) { case &amp;#39;value1&amp;#39;: // if (x === &amp;#39;value1&amp;#39;) ... [break] case &amp;#39;value2&amp;#39;: // if (x === &amp;#39;value2&amp;#39;) ... [break] default: ... [break] } 开始switch 之后，根据x的值会进入不同的case，然后继续向下运行。
+例子：
+let a = 2 + 2; switch (a) { case 3: alert( &amp;#39;Too small&amp;#39; ); break; case 4: alert( &amp;#39;Exactly!&amp;#39; ); break; case 5: alert( &amp;#39;Too big&amp;#39; ); break; default: alert( &amp;#34;I don&amp;#39;t know such values&amp;#34; ); } 注意1：如果没有 break，程序将不经过任何检查就会继续执行下一个 case。</description>
+    </item>
+    
     <item>
       <title>重新回顾JS的笔记系列(四)</title>
       <link>https://jiamian2020.github.io/post/blog5/</link>
