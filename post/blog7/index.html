@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html><head>
+<title>重新回顾JS的笔记系列（六）</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="重新回顾JS的笔记系列（六）" />
+<meta property="og:description" content="重新回顾JS的笔记系列（六） 1.数组 作为一种特殊的数据结构，数组（Array）能存储有序的集合。
+声明 创建一个空数组有两种语法：
+let arr = new Array(); let arr = []; 例子：
+let fruits = [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Plum&#34;]; alert( fruits[0] ); // Apple alert( fruits[1] ); // Orange alert( fruits[2] ); // Plum 基本操作 我们可以通过方括号中的数字获取元素：
+let fruits = [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Plum&#34;]; alert( fruits[0] ); // Apple alert( fruits[1] ); // Orange alert( fruits[2] ); // Plum 可以替换元素：
+fruits[2] = &#39;Pear&#39;; // 现在变成了 [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Pear&#34;] ……或者向数组新加一个元素：
+fruits[3] = &#39;Lemon&#39;; // 现在变成 [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Pear&#34;, &#34;Lemon&#34;] length 属性的值是数组中元素的总个数：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jiamian2020.github.io/post/blog7/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-03-08T22:25:45+08:00" />
+<meta property="article:modified_time" content="2023-03-08T22:25:45+08:00" /><meta property="og:site_name" content="My Blog" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="重新回顾JS的笔记系列（六）"/>
+<meta name="twitter:description" content="重新回顾JS的笔记系列（六） 1.数组 作为一种特殊的数据结构，数组（Array）能存储有序的集合。
+声明 创建一个空数组有两种语法：
+let arr = new Array(); let arr = []; 例子：
+let fruits = [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Plum&#34;]; alert( fruits[0] ); // Apple alert( fruits[1] ); // Orange alert( fruits[2] ); // Plum 基本操作 我们可以通过方括号中的数字获取元素：
+let fruits = [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Plum&#34;]; alert( fruits[0] ); // Apple alert( fruits[1] ); // Orange alert( fruits[2] ); // Plum 可以替换元素：
+fruits[2] = &#39;Pear&#39;; // 现在变成了 [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Pear&#34;] ……或者向数组新加一个元素：
+fruits[3] = &#39;Lemon&#39;; // 现在变成 [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Pear&#34;, &#34;Lemon&#34;] length 属性的值是数组中元素的总个数："/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/scss/journal.min.7c01e9f6fb2f6083d79d2f3a32ec6b7901e262e94a52a64a542aef98bc5bda64.css" integrity="sha256-fAHp9vsvYIPXnS86MuxreQHiYulKUqZKVCrvmLxb2mQ=" media="screen">
+
+
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS Feed
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e5%85%ad" class="nav-重新回顾js的笔记系列六">
+									重新回顾JS的笔记系列（六）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://jiamian2020.github.io">
+            A Hugo Site
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://jiamian2020.github.io">
+        <div class="single-column-header-title">A Hugo Site</div>
+        
+        <div class="single-column-header-subtitle">Themed by Diary.</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    重新回顾JS的笔记系列（六）
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-03-08 22:25
+                        </time>
+                        
+
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="重新回顾js的笔记系列六">重新回顾JS的笔记系列（六）</h2>
+<h5 id="1数组">1.数组</h5>
+<p>作为一种特殊的数据结构，数组（<code>Array</code>）能存储有序的集合。</p>
+<ul>
+<li>声明</li>
+</ul>
+<p>创建一个空数组有两种语法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> arr = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Array</span>();
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> arr = [];
+</span></span></code></pre></div><p>例子：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Plum&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits[<span style="color:#b452cd">0</span>] ); <span style="color:#228b22">// Apple
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( fruits[<span style="color:#b452cd">1</span>] ); <span style="color:#228b22">// Orange
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( fruits[<span style="color:#b452cd">2</span>] ); <span style="color:#228b22">// Plum
+</span></span></span></code></pre></div><ul>
+<li>基本操作</li>
+</ul>
+<p>我们可以通过方括号中的数字获取元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Plum&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits[<span style="color:#b452cd">0</span>] ); <span style="color:#228b22">// Apple
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( fruits[<span style="color:#b452cd">1</span>] ); <span style="color:#228b22">// Orange
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( fruits[<span style="color:#b452cd">2</span>] ); <span style="color:#228b22">// Plum
+</span></span></span></code></pre></div><p>可以替换元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>fruits[<span style="color:#b452cd">2</span>] = <span style="color:#cd5555">&#39;Pear&#39;</span>; <span style="color:#228b22">// 现在变成了 [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Pear&#34;]
+</span></span></span></code></pre></div><p>……或者向数组新加一个元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>fruits[<span style="color:#b452cd">3</span>] = <span style="color:#cd5555">&#39;Lemon&#39;</span>; <span style="color:#228b22">// 现在变成 [&#34;Apple&#34;, &#34;Orange&#34;, &#34;Pear&#34;, &#34;Lemon&#34;]
+</span></span></span></code></pre></div><p><code>length</code> 属性的值是数组中元素的总个数：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Plum&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits.length ); <span style="color:#228b22">// 3
+</span></span></span></code></pre></div><p>也可以用 <code>alert</code> 来显示整个数组。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Plum&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits ); <span style="color:#228b22">// Apple,Orange,Plum
+</span></span></span></code></pre></div><p>数组可以存储任何类型的元素。</p>
+<p>例如:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#228b22">// 混合值
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">let</span> arr = [ <span style="color:#cd5555">&#39;Apple&#39;</span>, { name: <span style="color:#cd5555">&#39;John&#39;</span> }, <span style="color:#8b008b;font-weight:bold">true</span>, <span style="color:#8b008b;font-weight:bold">function</span>() { alert(<span style="color:#cd5555">&#39;hello&#39;</span>); } ];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 获取索引为 1 的对象然后显示它的 name
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( arr[<span style="color:#b452cd">1</span>].name ); <span style="color:#228b22">// John
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 获取索引为 3 的函数并执行
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>arr[<span style="color:#b452cd">3</span>](); <span style="color:#228b22">// hello
+</span></span></span></code></pre></div><ul>
+<li>新特性（获取最后一个元素）</li>
+</ul>
+<p>简短的语法 <code>fruits.at(-1)</code>：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Plum&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 与 fruits[fruits.length-1] 相同
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( fruits.at(-<span style="color:#b452cd">1</span>) ); <span style="color:#228b22">// Plum
+</span></span></span></code></pre></div><p>换句话说，<code>arr.at(i)</code>：</p>
+<ul>
+<li>
+<p>如果 <code>i &gt;= 0</code>，则与 <code>arr[i]</code> 完全相同。</p>
+</li>
+<li>
+<p>对于 <code>i</code> 为负数的情况，它则从数组的尾部向前数。</p>
+</li>
+<li>
+<p>循环</p>
+</li>
+</ul>
+<p>遍历数组一开始使用的是for循环，但在JS当中则可以使用for···of来进行元素值的便利（不能获取当前元素的索引）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Plum&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 遍历数组元素
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> fruit <span style="color:#8b008b;font-weight:bold">of</span> fruits) {
+</span></span><span style="display:flex;"><span>  alert( fruit );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>JS中数组作为双端队列</li>
+</ul>
+<p>JavaScript 中的数组既可以用作队列，也可以用作栈。它们允许你从首端/末端来添加/删除元素。</p>
+<p>这在计算机科学中，允许这样的操作的数据结构被称为双端队列。</p>
+<h5 id="2数组的各种操作">2.数组的各种操作</h5>
+<ol>
+<li>pop操作</li>
+</ol>
+<p>取出并返回数组的最后一个元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Pear&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits.pop() ); <span style="color:#228b22">// 移除 &#34;Pear&#34; 然后 alert 显示出来
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert( fruits ); <span style="color:#228b22">// Apple, Orange
+</span></span></span></code></pre></div><p>2.push操作</p>
+<p>在数组末端添加元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fruits.push(<span style="color:#cd5555">&#34;Pear&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits ); <span style="color:#228b22">// Apple, Orange, Pear
+</span></span></span></code></pre></div><ol start="3">
+<li>shift操作</li>
+</ol>
+<p>取出数组的第一个元素并返回它：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Pear&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits.shift() ); <span style="color:#228b22">// 移除 Apple 然后 alert 显示出来
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert( fruits ); <span style="color:#228b22">// Orange, Pear
+</span></span></span></code></pre></div><ol start="4">
+<li>unshift操作</li>
+</ol>
+<p>在数组的首端添加元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Pear&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fruits.unshift(<span style="color:#cd5555">&#39;Apple&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( fruits ); <span style="color:#228b22">// Apple, Orange, Pear
+</span></span></span></code></pre></div><p>注意：<code>push</code> 和 <code>unshift</code> 方法都可以一次添加多个元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fruits.push(<span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Peach&#34;</span>);
+</span></span><span style="display:flex;"><span>fruits.unshift(<span style="color:#cd5555">&#34;Pineapple&#34;</span>, <span style="color:#cd5555">&#34;Lemon&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// [&#34;Pineapple&#34;, &#34;Lemon&#34;, &#34;Apple&#34;, &#34;Orange&#34;, &#34;Peach&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( fruits );
+</span></span></code></pre></div><p><code>push/pop</code> 方法运行的比较快，而 <code>shift/unshift</code> 比较慢。</p>
+<ol start="5">
+<li>splice操作：</li>
+</ol>
+<p>作用为删除指定元素。</p>
+<p>格式：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>arr.splice(start,deleteCount)<span style="color:#228b22">//第一个位置为起始位置，第二个为结束位置，写的内容是数组的下标。
+</span></span></span></code></pre></div><p>同时，也可以在后面添加元素来填充数组。</p>
+<p>例子：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> arr = [<span style="color:#cd5555">&#34;I&#34;</span>, <span style="color:#cd5555">&#34;study&#34;</span>, <span style="color:#cd5555">&#34;JavaScript&#34;</span>, <span style="color:#cd5555">&#34;right&#34;</span>, <span style="color:#cd5555">&#34;now&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 删除数组的前三项，并使用其他内容代替它们
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>arr.splice(<span style="color:#b452cd">0</span>, <span style="color:#b452cd">3</span>, <span style="color:#cd5555">&#34;Let&#39;s&#34;</span>, <span style="color:#cd5555">&#34;dance&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( arr ) <span style="color:#228b22">// 现在 [&#34;Let&#39;s&#34;, &#34;dance&#34;, &#34;right&#34;, &#34;now&#34;]
+</span></span></span></code></pre></div><p><strong>同样可以使用splice来插入元素</strong></p>
+<p>我们可以将 <code>deleteCount</code> 设置为 <code>0</code>，<code>splice</code> 方法就能够插入元素而不用删除任何元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> arr = [<span style="color:#cd5555">&#34;I&#34;</span>, <span style="color:#cd5555">&#34;study&#34;</span>, <span style="color:#cd5555">&#34;JavaScript&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 从索引 2 开始
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">// 删除 0 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">// 然后插入 &#34;complex&#34; 和 &#34;language&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>arr.splice(<span style="color:#b452cd">2</span>, <span style="color:#b452cd">0</span>, <span style="color:#cd5555">&#34;complex&#34;</span>, <span style="color:#cd5555">&#34;language&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( arr ); <span style="color:#228b22">// &#34;I&#34;, &#34;study&#34;, &#34;complex&#34;, &#34;language&#34;, &#34;JavaScript&#34;
+</span></span></span></code></pre></div><p>注意：使用splice是可以达成负向索引的：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> arr = [<span style="color:#b452cd">1</span>, <span style="color:#b452cd">2</span>, <span style="color:#b452cd">5</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 从索引 -1（尾端前一位）
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">// 删除 0 个元素，
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">// 然后插入 3 和 4
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>arr.splice(-<span style="color:#b452cd">1</span>, <span style="color:#b452cd">0</span>, <span style="color:#b452cd">3</span>, <span style="color:#b452cd">4</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( arr ); <span style="color:#228b22">// 1,2,3,4,5
+</span></span></span></code></pre></div><ol start="6">
+<li>slice方法</li>
+</ol>
+<p>语法是：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>arr.slice([start], [end])
+</span></span></code></pre></div><p>它会返回一个新数组，将所有从索引 <code>start</code> 到 <code>end</code>（不包括 <code>end</code>）的数组项复制到一个新的数组。<code>start</code> 和 <code>end</code> 都可以是负数，在这种情况下，从末尾计算索引。</p>
+<p>它和字符串的 <code>str.slice</code> 方法有点像，就是把子字符串替换成子数组。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> arr = [<span style="color:#cd5555">&#34;t&#34;</span>, <span style="color:#cd5555">&#34;e&#34;</span>, <span style="color:#cd5555">&#34;s&#34;</span>, <span style="color:#cd5555">&#34;t&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( arr.slice(<span style="color:#b452cd">1</span>, <span style="color:#b452cd">3</span>) ); <span style="color:#228b22">// e,s（复制从位置 1 到位置 3 的元素）
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert( arr.slice(-<span style="color:#b452cd">2</span>) ); <span style="color:#228b22">// s,t（复制从位置 -2 到尾端的元素）
+</span></span></span></code></pre></div><ol start="7">
+<li>concat方法</li>
+</ol>
+<p>arr.concat创建一个新数组，其中包含来自于其他数组和其他项的值。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>arr.concat(arg1, arg2...)
+</span></span></code></pre></div><p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> arr = [<span style="color:#b452cd">1</span>, <span style="color:#b452cd">2</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 从 arr 和 [3,4] 创建一个新数组
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( arr.concat([<span style="color:#b452cd">3</span>, <span style="color:#b452cd">4</span>]) ); <span style="color:#228b22">// 1,2,3,4
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 从 arr、[3,4] 和 [5,6] 创建一个新数组
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( arr.concat([<span style="color:#b452cd">3</span>, <span style="color:#b452cd">4</span>], [<span style="color:#b452cd">5</span>, <span style="color:#b452cd">6</span>]) ); <span style="color:#228b22">// 1,2,3,4,5,6
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 从 arr、[3,4]、5 和 6 创建一个新数组
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( arr.concat([<span style="color:#b452cd">3</span>, <span style="color:#b452cd">4</span>], <span style="color:#b452cd">5</span>, <span style="color:#b452cd">6</span>) ); <span style="color:#228b22">// 1,2,3,4,5,6
+</span></span></span></code></pre></div><ol start="8">
+<li>遍历方法for···of</li>
+</ol>
+<p>遍历数组一开始使用的是for循环，但在JS当中则可以使用for···of来进行元素值的便利（不能获取当前元素的索引）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruits = [<span style="color:#cd5555">&#34;Apple&#34;</span>, <span style="color:#cd5555">&#34;Orange&#34;</span>, <span style="color:#cd5555">&#34;Plum&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 遍历数组元素
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> fruit <span style="color:#8b008b;font-weight:bold">of</span> fruits) {
+</span></span><span style="display:flex;"><span>  alert( fruit );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="9">
+<li>遍历方法forEach</li>
+</ol>
+<p>arr.forEach方法允许为数组的每个元素都运行一个函数。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>arr.forEach(<span style="color:#8b008b;font-weight:bold">function</span>(item, index, array) {
+</span></span><span style="display:flex;"><span>  <span style="color:#228b22">// ... do something with item
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>});
+</span></span></code></pre></div><p>例如，下面这个程序显示了数组的每个元素：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#228b22">// 对每个元素调用 alert
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>[<span style="color:#cd5555">&#34;Bilbo&#34;</span>, <span style="color:#cd5555">&#34;Gandalf&#34;</span>, <span style="color:#cd5555">&#34;Nazgul&#34;</span>].forEach(alert);
+</span></span></code></pre></div><p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-未完</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-03-08</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/post/blog6/">
+			Previous<br>重新回顾JS的笔记系列(五）
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/repo"
+        data-repo-id=""
+        data-category="General"
+        data-category-id="*********************"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://jiamian2020.github.io">
+    
+        <div class="nav-title">
+            A Hugo Site
+        </div>
+        
+        <div class="nav-subtitle">
+            Themed by Diary.
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS Feed
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e5%85%ad" class="nav-重新回顾js的笔记系列六">
+									重新回顾JS的笔记系列（六）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

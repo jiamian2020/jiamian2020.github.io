@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Mon, 06 Mar 2023 12:44:59 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Mar 2023 22:25:45 +0800</lastBuildDate><atom:link href="https://jiamian2020.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重新回顾JS的笔记系列（六）</title>
+      <link>https://jiamian2020.github.io/post/blog7/</link>
+      <pubDate>Wed, 08 Mar 2023 22:25:45 +0800</pubDate>
+      
+      <guid>https://jiamian2020.github.io/post/blog7/</guid>
+      <description>重新回顾JS的笔记系列（六） 1.数组 作为一种特殊的数据结构，数组（Array）能存储有序的集合。
+声明 创建一个空数组有两种语法：
+let arr = new Array(); let arr = []; 例子：
+let fruits = [&amp;#34;Apple&amp;#34;, &amp;#34;Orange&amp;#34;, &amp;#34;Plum&amp;#34;]; alert( fruits[0] ); // Apple alert( fruits[1] ); // Orange alert( fruits[2] ); // Plum 基本操作 我们可以通过方括号中的数字获取元素：
+let fruits = [&amp;#34;Apple&amp;#34;, &amp;#34;Orange&amp;#34;, &amp;#34;Plum&amp;#34;]; alert( fruits[0] ); // Apple alert( fruits[1] ); // Orange alert( fruits[2] ); // Plum 可以替换元素：
+fruits[2] = &amp;#39;Pear&amp;#39;; // 现在变成了 [&amp;#34;Apple&amp;#34;, &amp;#34;Orange&amp;#34;, &amp;#34;Pear&amp;#34;] ……或者向数组新加一个元素：
+fruits[3] = &amp;#39;Lemon&amp;#39;; // 现在变成 [&amp;#34;Apple&amp;#34;, &amp;#34;Orange&amp;#34;, &amp;#34;Pear&amp;#34;, &amp;#34;Lemon&amp;#34;] length 属性的值是数组中元素的总个数：</description>
+    </item>
+    
     <item>
       <title>重新回顾JS的笔记系列(五）</title>
       <link>https://jiamian2020.github.io/post/blog6/</link>
