@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html><head>
+<title>重新回顾JS的笔记系列（七）</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="重新回顾JS的笔记系列（七）" />
+<meta property="og:description" content="重新回顾JS的笔记系列（七） 1.对象 对象是用来存储键值对和更复杂的实体
+我们可以通过使用带有可选 属性列表 的花括号 {…} 来创建对象。一个属性就是一个键值对（“key: value”），其中键（key）是一个字符串（也叫做属性名），值（value）可以是任何值。
+创建对象： let user = new Object(); // “构造函数” 的语法 let user = {}; // “字面量” 的语法 属性有键（或者也可以叫做“名字”或“标识符”），位于冒号 &quot;:&quot; 的前面，值在冒号的右边。
+例子：
+let user = { // 一个对象 name: &#34;John&#34;, // 键 &#34;name&#34;，值 &#34;John&#34; age: 30 // 键 &#34;age&#34;，值 30 }; 同时我们可以增加任意类型的属性
+user.isAdmin = true; 也可以删除属性
+delete user.age; 我们也可以用多字词语来作为属性名，但必须给它们加上引号：
+let user = { name: &#34;John&#34;, age: 30, &#34;likes birds&#34;: true // 多词属性名必须加引号 }; 但是，多次属性是不可以使用点操作的：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jiamian2020.github.io/post/blog8/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-03-09T22:20:43+08:00" />
+<meta property="article:modified_time" content="2023-03-09T22:20:43+08:00" /><meta property="og:site_name" content="My Blog" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="重新回顾JS的笔记系列（七）"/>
+<meta name="twitter:description" content="重新回顾JS的笔记系列（七） 1.对象 对象是用来存储键值对和更复杂的实体
+我们可以通过使用带有可选 属性列表 的花括号 {…} 来创建对象。一个属性就是一个键值对（“key: value”），其中键（key）是一个字符串（也叫做属性名），值（value）可以是任何值。
+创建对象： let user = new Object(); // “构造函数” 的语法 let user = {}; // “字面量” 的语法 属性有键（或者也可以叫做“名字”或“标识符”），位于冒号 &quot;:&quot; 的前面，值在冒号的右边。
+例子：
+let user = { // 一个对象 name: &#34;John&#34;, // 键 &#34;name&#34;，值 &#34;John&#34; age: 30 // 键 &#34;age&#34;，值 30 }; 同时我们可以增加任意类型的属性
+user.isAdmin = true; 也可以删除属性
+delete user.age; 我们也可以用多字词语来作为属性名，但必须给它们加上引号：
+let user = { name: &#34;John&#34;, age: 30, &#34;likes birds&#34;: true // 多词属性名必须加引号 }; 但是，多次属性是不可以使用点操作的："/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/scss/journal.min.7c01e9f6fb2f6083d79d2f3a32ec6b7901e262e94a52a64a542aef98bc5bda64.css" integrity="sha256-fAHp9vsvYIPXnS86MuxreQHiYulKUqZKVCrvmLxb2mQ=" media="screen">
+
+
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS Feed
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e4%b8%83" class="nav-重新回顾js的笔记系列七">
+									重新回顾JS的笔记系列（七）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://jiamian2020.github.io">
+            A Hugo Site
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://jiamian2020.github.io">
+        <div class="single-column-header-title">A Hugo Site</div>
+        
+        <div class="single-column-header-subtitle">Themed by Diary.</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    重新回顾JS的笔记系列（七）
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-03-09 22:20
+                        </time>
+                        
+
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="重新回顾js的笔记系列七">重新回顾JS的笔记系列（七）</h2>
+<h5 id="1对象">1.对象</h5>
+<p>对象是用来存储键值对和更复杂的实体</p>
+<p>我们可以通过使用带有可选 <strong>属性列表</strong> 的花括号 <code>{…}</code> 来创建对象。一个属性就是一个键值对（“key: value”），其中键（<code>key</code>）是一个字符串（也叫做属性名），值（<code>value</code>）可以是任何值。</p>
+<ul>
+<li>创建对象：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Object</span>(); <span style="color:#228b22">// “构造函数” 的语法
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">let</span> user = {};  <span style="color:#228b22">// “字面量” 的语法
+</span></span></span></code></pre></div><p>属性有键（或者也可以叫做“名字”或“标识符”），位于冒号 <code>&quot;:&quot;</code> 的前面，值在冒号的右边。</p>
+<p>例子：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {     <span style="color:#228b22">// 一个对象
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,  <span style="color:#228b22">// 键 &#34;name&#34;，值 &#34;John&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  age: <span style="color:#b452cd">30</span>        <span style="color:#228b22">// 键 &#34;age&#34;，值 30
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>};
+</span></span></code></pre></div><p>同时我们可以增加任意类型的属性</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>user.isAdmin = <span style="color:#8b008b;font-weight:bold">true</span>;
+</span></span></code></pre></div><p>也可以删除属性</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">delete</span> user.age;
+</span></span></code></pre></div><p>我们也可以用多字词语来作为属性名，但必须给它们加上引号：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  age: <span style="color:#b452cd">30</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#cd5555">&#34;likes birds&#34;</span>: <span style="color:#8b008b;font-weight:bold">true</span>  <span style="color:#228b22">// 多词属性名必须加引号
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>};
+</span></span></code></pre></div><p>但是，多次属性是不可以使用点操作的：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#228b22">// 这将提示有语法错误
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>user.likes birds = <span style="color:#8b008b;font-weight:bold">true</span>
+</span></span></code></pre></div><p>正确的操作如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 设置
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>user[<span style="color:#cd5555">&#34;likes birds&#34;</span>] = <span style="color:#8b008b;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 读取
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert(user[<span style="color:#cd5555">&#34;likes birds&#34;</span>]); <span style="color:#228b22">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 删除
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">delete</span> user[<span style="color:#cd5555">&#34;likes birds&#34;</span>];
+</span></span></code></pre></div><p>此外，在对象使用方括号的时候，可以使用key来作为变量进行属性的访问（不用方括号会出现undefined）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  age: <span style="color:#b452cd">30</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> key = prompt(<span style="color:#cd5555">&#34;What do you want to know about the user?&#34;</span>, <span style="color:#cd5555">&#34;name&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 访问变量
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( user[key] ); <span style="color:#228b22">// John（如果输入 &#34;name&#34;）
+</span></span></span></code></pre></div><ul>
+<li>计算属性</li>
+</ul>
+<p>当创建一个对象时，我们可以在对象字面量中使用方括号。这叫做 <strong>计算属性</strong>。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruit = prompt(<span style="color:#cd5555">&#34;Which fruit to buy?&#34;</span>, <span style="color:#cd5555">&#34;apple&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> bag = {
+</span></span><span style="display:flex;"><span>  [fruit]: <span style="color:#b452cd">5</span>, <span style="color:#228b22">// 属性名是从 fruit 变量中得到的
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( bag.apple ); <span style="color:#228b22">// 5 如果 fruit=&#34;apple&#34;
+</span></span></span></code></pre></div><p>本质上，这跟下面的语法效果相同：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> fruit = prompt(<span style="color:#cd5555">&#34;Which fruit to buy?&#34;</span>, <span style="color:#cd5555">&#34;apple&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> bag = {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 从 fruit 变量中获取值
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>bag[fruit] = <span style="color:#b452cd">5</span>;
+</span></span></code></pre></div><ul>
+<li>属性值简写</li>
+</ul>
+<p>在实际开发中，我们通常用已存在的变量当做属性名。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">function</span> makeUser(name, age) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8b008b;font-weight:bold">return</span> {
+</span></span><span style="display:flex;"><span>    name: name,
+</span></span><span style="display:flex;"><span>    age: age,
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">// ……其他的属性
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = makeUser(<span style="color:#cd5555">&#34;John&#34;</span>, <span style="color:#b452cd">30</span>);
+</span></span><span style="display:flex;"><span>alert(user.name); <span style="color:#228b22">// John
+</span></span></span></code></pre></div><p>注意，对象的属性名对保留字是没有限制的，你可以使用‘let’作为属性名。</p>
+<ul>
+<li>判断属性存在</li>
+</ul>
+<p>相比于其他语言，JavaScript 的对象有一个需要注意的特性：能够被访问任何属性。即使属性不存在也不会报错！</p>
+<p>读取不存在的属性只会得到 <code>undefined</code>。所以我们可以很容易地判断一个属性是否存在：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( user.noSuchProperty === <span style="color:#8b008b;font-weight:bold">undefined</span> ); <span style="color:#228b22">// true 意思是没有这个属性
+</span></span></span></code></pre></div><p>这里还有一个特别的，检查属性是否存在的操作符 <code>&quot;in&quot;</code>。</p>
+<p>语法是：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#cd5555">&#34;key&#34;</span> <span style="color:#8b008b;font-weight:bold">in</span> object
+</span></span></code></pre></div><p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = { name: <span style="color:#cd5555">&#34;John&#34;</span>, age: <span style="color:#b452cd">30</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( <span style="color:#cd5555">&#34;age&#34;</span> <span style="color:#8b008b;font-weight:bold">in</span> user ); <span style="color:#228b22">// true，user.age 存在
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( <span style="color:#cd5555">&#34;blabla&#34;</span> <span style="color:#8b008b;font-weight:bold">in</span> user ); <span style="color:#228b22">// false，user.blabla 不存在。
+</span></span></span></code></pre></div><p>请注意，<code>in</code> 的左边必须是 <strong>属性名</strong>。通常是一个带引号的字符串。</p>
+<p>如果我们省略引号，就意味着左边是一个变量，它应该包含要判断的实际属性名。例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = { age: <span style="color:#b452cd">30</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> key = <span style="color:#cd5555">&#34;age&#34;</span>;
+</span></span><span style="display:flex;"><span>alert( key <span style="color:#8b008b;font-weight:bold">in</span> user ); <span style="color:#228b22">// true，属性 &#34;age&#34; 存在
+</span></span></span></code></pre></div><p>为何会有 <code>in</code> 运算符呢？与 <code>undefined</code> 进行比较来判断还不够吗？</p>
+<p>确实，大部分情况下与 <code>undefined</code> 进行比较来判断就可以了。但有一个例外情况，这种比对方式会有问题，但 <code>in</code> 运算符的判断结果仍是对的。</p>
+<p>那就是属性存在，但存储的值是 <code>undefined</code> 的时候：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> obj = {
+</span></span><span style="display:flex;"><span>  test: <span style="color:#8b008b;font-weight:bold">undefined</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( obj.test ); <span style="color:#228b22">// 显示 undefined，所以属性不存在？
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert( <span style="color:#cd5555">&#34;test&#34;</span> <span style="color:#8b008b;font-weight:bold">in</span> obj ); <span style="color:#228b22">// true，属性存在！
+</span></span></span></code></pre></div><p>在上面的代码中，属性 <code>obj.test</code> 事实上是存在的，所以 <code>in</code> 操作符检查通过。</p>
+<ul>
+<li>for···in循环</li>
+</ul>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">for</span> (key <span style="color:#8b008b;font-weight:bold">in</span> object) {
+</span></span><span style="display:flex;"><span>  <span style="color:#228b22">// 对此对象属性中的每个键执行的代码
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>}
+</span></span></code></pre></div><p>例如，让我们列出 <code>user</code> 所有的属性：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  age: <span style="color:#b452cd">30</span>,
+</span></span><span style="display:flex;"><span>  isAdmin: <span style="color:#8b008b;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> key <span style="color:#8b008b;font-weight:bold">in</span> user) {
+</span></span><span style="display:flex;"><span>  <span style="color:#228b22">// keys
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  alert( key );  <span style="color:#228b22">// name, age, isAdmin
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  <span style="color:#228b22">// 属性键的值
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  alert( user[key] ); <span style="color:#228b22">// John, 30, true
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>}
+</span></span></code></pre></div><p>注意：</p>
+<p>如果我们遍历一个对象，简短的回答是：“有特别的顺序”：整数属性会被进行排序，其他属性则按照创建的顺序显示。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> codes = {
+</span></span><span style="display:flex;"><span>  <span style="color:#cd5555">&#34;49&#34;</span>: <span style="color:#cd5555">&#34;Germany&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#cd5555">&#34;41&#34;</span>: <span style="color:#cd5555">&#34;Switzerland&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#cd5555">&#34;44&#34;</span>: <span style="color:#cd5555">&#34;Great Britain&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#228b22">// ..,
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  <span style="color:#cd5555">&#34;1&#34;</span>: <span style="color:#cd5555">&#34;USA&#34;</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#8b008b;font-weight:bold">let</span> code <span style="color:#8b008b;font-weight:bold">in</span> codes) {
+</span></span><span style="display:flex;"><span>  alert(code); <span style="color:#228b22">// 1, 41, 44, 49
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>}
+</span></span></code></pre></div><h5 id="2对象的引用和复制">2.对象的引用和复制</h5>
+<p>简单的来说，我们构建对象的时候所设定的变量存储的是对象本体所在的地址，也就是对对象的“引用”，所以如果直接用另一个变量来复制以前的对象变量，那么复制到的是对象的地址，相当于，对象本体是一把锁，对象变量是一把钥匙，用另一个变量复制对象变量，就是“配一把钥匙”。</p>
+<h5 id="3对象相等">3.对象相等</h5>
+<p>仅当两个对象为同一对象时，两者才相等。</p>
+<p>例如，这里 <code>a</code> 和 <code>b</code> 两个变量都引用同一个对象，所以它们相等：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> a = {};
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> b = a; <span style="color:#228b22">// 复制引用
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert( a == b ); <span style="color:#228b22">// true，都引用同一对象
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert( a === b ); <span style="color:#228b22">// true
+</span></span></span></code></pre></div><p>而这里两个独立的对象则并不相等，即使它们看起来很像（都为空）：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> a = {};
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> b = {}; <span style="color:#228b22">// 两个独立的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert( a == b ); <span style="color:#228b22">// false
+</span></span></span></code></pre></div><p>对于类似 <code>obj1 &gt; obj2</code> 的比较，或者跟一个原始类型值的比较 <code>obj == 5</code>，对象都会被转换为原始值。我们很快就会学到对象是如何转换的，但是说实话，很少需要进行这样的比较 —— 通常是在编程错误的时候才会出现这种情况。</p>
+<h5 id="4对象克隆">4.对象克隆</h5>
+<p>那么，拷贝一个对象变量会又创建一个对相同对象的引用。</p>
+<p>但是，如果我们想要复制一个对象，那该怎么做呢？</p>
+<p>我们可以创建一个新对象，通过遍历已有对象的属性，并在原始类型值的层面复制它们，以实现对已有对象结构的复制。</p>
+<p>就像这样：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  age: <span style="color:#b452cd">30</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> clone = {}; <span style="color:#228b22">// 新的空对象
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 将 user 中所有的属性拷贝到其中
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> key <span style="color:#8b008b;font-weight:bold">in</span> user) {
+</span></span><span style="display:flex;"><span>  clone[key] = user[key];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 现在 clone 是带有相同内容的完全独立的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>clone.name = <span style="color:#cd5555">&#34;Pete&#34;</span>; <span style="color:#228b22">// 改变了其中的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span>alert( user.name ); <span style="color:#228b22">// 原来的对象中的 name 属性依然是 John
+</span></span></span></code></pre></div><p>我们也可以使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> 方法来达成同样的效果。</p>
+<p>语法是：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#658b00">Object</span>.assign(dest, [src1, src2, src3...])
+</span></span></code></pre></div><ul>
+<li>第一个参数 <code>dest</code> 是指目标对象。</li>
+<li>更后面的参数 <code>src1, ..., srcN</code>（可按需传递多个参数）是源对象。</li>
+<li>该方法将所有源对象的属性拷贝到目标对象 <code>dest</code> 中。换句话说，从第二个开始的所有参数的属性都被拷贝到第一个参数的对象中。</li>
+<li>调用结果返回 <code>dest</code>。</li>
+</ul>
+<p>例如，我们可以用它来合并多个对象：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = { name: <span style="color:#cd5555">&#34;John&#34;</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> permissions1 = { canView: <span style="color:#8b008b;font-weight:bold">true</span> };
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> permissions2 = { canEdit: <span style="color:#8b008b;font-weight:bold">true</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 将 permissions1 和 permissions2 中的所有属性都拷贝到 user 中
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#658b00">Object</span>.assign(user, permissions1, permissions2);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// 现在 user = { name: &#34;John&#34;, canView: true, canEdit: true }
+</span></span></span></code></pre></div><p>如果被拷贝的属性的属性名已经存在，那么它会被覆盖：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = { name: <span style="color:#cd5555">&#34;John&#34;</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#658b00">Object</span>.assign(user, { name: <span style="color:#cd5555">&#34;Pete&#34;</span> });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert(user.name); <span style="color:#228b22">// 现在 user = { name: &#34;Pete&#34; }
+</span></span></span></code></pre></div><p>我们也可以用 <code>Object.assign</code> 代替 <code>for..in</code> 循环来进行简单克隆：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  age: <span style="color:#b452cd">30</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> clone = <span style="color:#658b00">Object</span>.assign({}, user);
+</span></span></code></pre></div><p>它将 <code>user</code> 中的所有属性拷贝到了一个空对象中，并返回这个新的对象。</p>
+<p>还有其他克隆对象的方法，例如使用 <a href="https://zh.javascript.info/rest-parameters-spread">spread 语法</a> <code>clone = {...user}</code>，在后面的章节中我们会讲到。</p>
+<h5 id="5深度拷贝">5.深度拷贝</h5>
+<p>到现在为止，我们都假设 <code>user</code> 的所有属性均为原始类型。但属性可以是对其他对象的引用。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  sizes: {
+</span></span><span style="display:flex;"><span>    height: <span style="color:#b452cd">182</span>,
+</span></span><span style="display:flex;"><span>    width: <span style="color:#b452cd">50</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( user.sizes.height ); <span style="color:#228b22">// 182
+</span></span></span></code></pre></div><p>现在这样拷贝 <code>clone.sizes = user.sizes</code> 已经不足够了，因为 <code>user.sizes</code> 是个对象，它会以引用形式被拷贝。因此 <code>clone</code> 和 <code>user</code> 会共用一个 sizes：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> user = {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#cd5555">&#34;John&#34;</span>,
+</span></span><span style="display:flex;"><span>  sizes: {
+</span></span><span style="display:flex;"><span>    height: <span style="color:#b452cd">182</span>,
+</span></span><span style="display:flex;"><span>    width: <span style="color:#b452cd">50</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">let</span> clone = <span style="color:#658b00">Object</span>.assign({}, user);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>alert( user.sizes === clone.sizes ); <span style="color:#228b22">// true，同一个对象
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">// user 和 clone 分享同一个 sizes
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>user.sizes.width++;       <span style="color:#228b22">// 通过其中一个改变属性值
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>alert(clone.sizes.width); <span style="color:#228b22">// 51，能从另外一个获取到变更后的结果
+</span></span></span></code></pre></div><p>为了解决这个问题，并让 <code>user</code> 和 <code>clone</code> 成为两个真正独立的对象，我们应该使用一个拷贝循环来检查 <code>user[key]</code> 的每个值，如果它是一个对象，那么也复制它的结构。这就是所谓的“深拷贝”</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-03-09</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/post/blog7/">
+			Previous<br>重新回顾JS的笔记系列（六）
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/repo"
+        data-repo-id=""
+        data-category="General"
+        data-category-id="*********************"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://jiamian2020.github.io">
+    
+        <div class="nav-title">
+            A Hugo Site
+        </div>
+        
+        <div class="nav-subtitle">
+            Themed by Diary.
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS Feed
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%87%8d%e6%96%b0%e5%9b%9e%e9%a1%bejs%e7%9a%84%e7%ac%94%e8%ae%b0%e7%b3%bb%e5%88%97%e4%b8%83" class="nav-重新回顾js的笔记系列七">
+									重新回顾JS的笔记系列（七）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
